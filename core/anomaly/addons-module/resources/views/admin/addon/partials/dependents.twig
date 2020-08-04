@@ -1,0 +1,18 @@
+{% if addon.getDependents().isNotEmpty() %}
+    <h3 class="lead">
+        {{ trans('anomaly.module.addons::label.dependents') }}
+    </h3>
+
+    <ul class="list-unstyled">
+
+        {% for addon in addon.getDependents() %}
+            <li>
+                <a href="/admin/addons/view/{{ addon.namespace }}"
+                   target="_blank">
+                    {{ addon.name }}
+                </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endif %}

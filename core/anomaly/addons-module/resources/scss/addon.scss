@@ -1,0 +1,74 @@
+.card.addon-card {
+    overflow: hidden;
+
+    .banner-header {
+        position: relative;
+
+        &.default-banner {
+            overflow: hidden;
+            max-height: 200px;
+        }
+
+        .card-title {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 1rem;
+            color: #333333;
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+
+            > img {
+                float: left;
+                width: 128px;
+                margin-top: -4rem;
+                margin-right: 1rem;
+            }
+
+            small {
+                color: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        > img {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    .screenshots {
+        padding: 0;
+        list-style: none;
+        padding-top: 1rem;
+        margin-bottom: 2rem;
+
+        li {
+            display: inline-block;
+
+            &:not(:last-of-type) {
+                margin-right: 1rem;
+            }
+
+            a {
+                overflow: hidden;
+                display: inline-block;
+                outline: 3px solid #333;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    outline-color: #007bff;
+                }
+
+                img {
+                    width: 80px;
+                }
+            }
+        }
+    }
+
+    dd {
+        word-break: break-all;
+    }
+}

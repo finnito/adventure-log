@@ -1,0 +1,17 @@
+{% if addon.getVersions() %}
+    <h3 class="lead">
+        {{ trans('anomaly.module.addons::label.versions') }}
+    </h3>
+
+    <ul class="list-unstyled">
+        <li>
+            {{ addon.getVersions()|reverse|slice(0, 15)|join(', ') }}
+            {% if addon.getVersions()|length > 15 %}
+                ...
+                <strong>
+                    {{ trans('anomaly.module.addons::label.more', {'amount': addon.getVersions()|slice(15)|length}) }}
+                </strong>
+            {% endif %}
+        </li>
+    </ul>
+{% endif %}

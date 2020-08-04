@@ -1,0 +1,35 @@
+{% if addon.getRequires() %}
+    <h3 class="lead">
+        {{ trans('anomaly.module.addons::label.requires') }}
+    </h3>
+
+    <ul class="list-unstyled">
+
+        {% for package, require in addon.getRequires() %}
+
+            {% set type = explode('-', package)|last %}
+
+            {% if type in config('streams::addons.types') %}
+
+                {% set vendor = package|split('/')|first %}
+                {% set addon = package|split('/')|last %}
+                {% set slug = addon|split('-')|first %}
+                {% set type = addon|split('-')|last %}
+                {% set namespace = vendor ~ '.' ~ type ~ '.' ~ slug %}
+
+                <li>
+                    <a href="/admin/addons/view/{{ namespace }}"
+                       target="_blank">
+                        {{ package }}
+                    </a>
+                    : {{ require }}
+                </li>
+            {% else %}
+                <li>
+                    {{ package }}: {{ require }}
+                </li>
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+{% endif %}

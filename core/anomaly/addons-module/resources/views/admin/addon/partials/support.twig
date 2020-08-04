@@ -1,0 +1,77 @@
+{% if addon.getSupport() %}
+    <h3 class="lead">
+        {{ trans('anomaly.module.addons::label.support') }}
+    </h3>
+
+    <ul class="list-unstyled">
+
+        {% if addon.getSupport().email %}
+            <li>{{ html_mailto(addon.getSupport().email, trans('anomaly.module.addons::label.support_email')) }}</li>
+        {% endif %}
+
+        {% if addon.getSupport().issues %}
+            <li>
+                <a href="{{ addon.getSupport().issues }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.known_issues') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().forum %}
+            <li>
+                <a href="{{ addon.getSupport().forum }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.support_forum') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().slack %}
+            <li>
+                <a href="{{ addon.getSupport().slack }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.slack') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().irc %}
+            <li>
+                <a href="{{ addon.getSupport().irc }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.irc_channel') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().wiki %}
+            <li>
+                <a href="{{ addon.getSupport().wiki }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.project_wiki') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().source %}
+            <li>
+                <a href="{{ addon.getSupport().source }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.source_code') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().docs %}
+            <li>
+                <a href="{{ addon.getSupport().docs }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.documentation') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if addon.getSupport().rss %}
+            <li>
+                <a href="{{ addon.getSupport().rss }}" target="_blank">
+                    {{ trans('anomaly.module.addons::label.rss') }}
+                </a>
+            </li>
+        {% endif %}
+
+    </ul>
+{% endif %}

@@ -1,0 +1,9 @@
+{
+    "name": "finnito/places-module",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Finnito\\PlacesModule\\": "src/"
+        }
+    }
+}

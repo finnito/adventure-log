@@ -1,0 +1,9 @@
+{
+    "name": "finnito/adventurelog-theme",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Finnito\\AdventurelogTheme\\": "src/"
+        }
+    }
+}

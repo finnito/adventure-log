@@ -37,28 +37,13 @@ for feature in gj["features"]:
         slug[i] = slug[i].lower()
     slug = u'-'.join(slug) + "-" + str(feature["properties"]["FID"])
 
-    tp = (
-        feature["properties"]["name"],
-        slug,
-        int(feature["properties"]["FID"]),
-        feature["properties"]["place"],
-        feature["properties"]["region"],
-        feature["properties"]["facilities"],
-        feature["properties"]["staticLink"],
-        int(feature["properties"]["assetId"]),
-        feature["properties"]["dateLoadedToGIS"],
-        float(feature["geometry"]["coordinates"][0]),
-        float(feature["geometry"]["coordinates"][1]),
-        feature["properties"]["introductionThumbnail"]
-    )
-
-    print(tp)
     with connection.cursor() as cursor:
         # Create a new record
         sql = """
             INSERT INTO
             `adventure_log_places_places` (
                 `created_at`,
+                `created_by_id`,
                 `name`,
                 `slug`,
                 `fid`,
@@ -84,10 +69,12 @@ for feature in gj["features"]:
                 %s,
                 %s,
                 %s,
+                %s,
                 %s
             )"""
         cursor.execute(sql, (
                 time.strftime('%Y-%m-%d %H:%M:%S'),
+                1,
                 feature["properties"]["name"],
                 slug,
                 int(feature["properties"]["FID"]),

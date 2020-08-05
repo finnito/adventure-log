@@ -1,16 +1,25 @@
 #!/Users/finnlesueur/.pyenv/shims/python3
 
 import pymysql.cursors
+from dotenv import load_dotenv
+from pathlib import Path
 import geojson
-import time    
+import time
+import os
 
+# Load the .env file
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+# Load the DOC Huts geojson
 with open("DOC_Huts.geojson") as f:
     gj = geojson.load(f)
 
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='cjbzxt(+B1Hk',
-                             db='adventure_log',
+# Connect to MySQL
+connection = pymysql.connect(host=os.getenv("DB_HOST"),
+                             user=os.getenv("DB_USERNAME"),
+                             password=os.getenv("DB_PASSWORD"),
+                             db=os.getenv("DB_DATABASE"),
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 

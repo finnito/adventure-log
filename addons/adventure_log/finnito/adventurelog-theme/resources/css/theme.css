@@ -423,8 +423,19 @@ nav.mobile ul li {
   margin: 0.75rem 1rem;
 }
 
+header hr {
+  margin-bottom: 1rem;
+}
+
+footer hr {
+  margin-bottom: 1.5rem;
+}
+
 .desktop { display: none; }
 
+@media (min-width: 375px) {
+  .hamburger p { display: block; }
+}
 
 @media (min-width: 768px) {
   .toggle ~ .nav-wrapper {

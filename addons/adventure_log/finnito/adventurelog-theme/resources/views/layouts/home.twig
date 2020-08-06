@@ -1,0 +1,72 @@
+{% htmlcompress %}
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ms lt_ie7" lang="en"><![endif]-->
+<!--[if IE 7]>
+<html class="nojs ms ie7" lang="en"><![endif]-->
+<!--[if IE 8]>
+<html class="nojs ms ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]>
+<html class="nojs ms" lang="en"><![endif]-->
+
+<html lang="{{ config('app.locale') }}">
+
+    <head>
+        {% include "theme::partials/metadata" %}
+    </head>
+
+    <body>
+
+    {% include "theme::partials/header" %}
+
+    <main id="main">
+
+        {% include "theme::partials/messages" %}
+
+        {% block content %}{% endblock %}
+
+        {% set logs = entries('places', 'logs')
+            .orderBy("created_at", "DESC")
+            .limit(5)
+            .get() %}
+        <h3>5 Most Recent Logs</h3>
+        {% if logs|length == 0 %}
+            <p>No logs yet. Be the first?</p>
+        {% else %}
+            <ul class="logs">
+            {% for log in logs %}
+                <li>
+                    <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
+                        <p class="flex nowrap">
+                            <span>{{ log.log_date.format('D d F, Y') }}<br>{{ log.related_hut.name }} <small>{{ log.related_hut.place }}</small></span>
+                            <span>{{ log.name }}</span>
+                        </p>
+                        <p>{{ log.log }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% set places = entries('places', 'places')
+            .where("place", "!=", "null")
+            .groupBy('place_slug')
+            .orderBy("place")
+            .get(["place_slug", "place"]) %}
+
+        <h3>Places</h3>
+        <ul>
+        {% for place in places %}
+            <li><a href="/places/{{ place.place_slug }}">{{ place.place }}</a></li>
+        {% endfor %}
+        </ul>
+
+    </main>
+
+    {% include "theme::partials/footer" %}
+    {% include "theme::partials/assets" %}
+
+    </body>
+</html>
+{% endhtmlcompress %}

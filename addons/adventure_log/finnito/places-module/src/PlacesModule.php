@@ -30,6 +30,11 @@ class PlacesModule extends Module
                 'new_place',
             ],
         ],
+        'logs' => [
+            'buttons' => [
+                'new_log',
+            ],
+        ],
     ];
 
 }

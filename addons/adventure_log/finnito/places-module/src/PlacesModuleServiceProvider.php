@@ -1,11 +1,16 @@
 <?php namespace Finnito\PlacesModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Finnito\PlacesModule\Log\Contract\LogRepositoryInterface;
+use Finnito\PlacesModule\Log\LogRepository;
+use Anomaly\Streams\Platform\Model\Places\PlacesLogsEntryModel;
+use Finnito\PlacesModule\Log\LogModel;
 use Finnito\PlacesModule\Place\Contract\PlaceRepositoryInterface;
 use Finnito\PlacesModule\Place\PlaceRepository;
 use Anomaly\Streams\Platform\Model\Places\PlacesPlacesEntryModel;
 use Finnito\PlacesModule\Place\PlaceModel;
 use Illuminate\Routing\Router;
+use \Finnito\PlacesModule\Log\Form\LogFormBuilder;
 
 class PlacesModuleServiceProvider extends AddonServiceProvider
 {
@@ -44,10 +49,16 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $routes = [
+        'admin/places/logs'           => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@index',
+        'admin/places/logs/create'    => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@create',
+        'admin/places/logs/edit/{id}' => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@edit',
         'admin/places'           => 'Finnito\PlacesModule\Http\Controller\Admin\PlacesController@index',
         'admin/places/create'    => 'Finnito\PlacesModule\Http\Controller\Admin\PlacesController@create',
         'admin/places/edit/{id}' => 'Finnito\PlacesModule\Http\Controller\Admin\PlacesController@edit',
-        '/places/search'         => 'Finnito\PlacesModule\Http\Controller\SearchController@search'
+        '/places/search/'         => 'Finnito\PlacesModule\Http\Controller\SearchController@search',
+        "/places/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@index',
+        "/places/{place_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@place',
+        "/places/{place_slug}/{name_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@hut',
     ];
 
     /**
@@ -94,7 +105,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $aliases = [
-        //'Example' => Finnito\PlacesModule\Example::class
+        'LogFormBuilder' => LogFormBuilder::class
     ];
 
     /**
@@ -103,6 +114,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $bindings = [
+        PlacesLogsEntryModel::class => LogModel::class,
         PlacesPlacesEntryModel::class => PlaceModel::class,
     ];
 
@@ -112,6 +124,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $singletons = [
+        LogRepositoryInterface::class => LogRepository::class,
         PlaceRepositoryInterface::class => PlaceRepository::class,
     ];
 

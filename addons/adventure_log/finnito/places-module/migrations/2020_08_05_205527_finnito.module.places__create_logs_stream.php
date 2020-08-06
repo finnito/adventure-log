@@ -2,7 +2,7 @@
 
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
-class FinnitoModulePlacesCreatePlacesStream extends Migration
+class FinnitoModulePlacesCreateLogsStream extends Migration
 {
 
     /**
@@ -19,10 +19,10 @@ class FinnitoModulePlacesCreatePlacesStream extends Migration
      * @var array
      */
     protected $stream = [
-        'slug' => 'places',
-        'title_column' => 'name',
+        'slug' => 'logs',
+        'title_column' => 'log',
         'translatable' => false,
-        'versionable' => true,
+        'versionable' => false,
         'trashable' => true,
         'searchable' => true,
         'sortable' => false,
@@ -34,26 +34,18 @@ class FinnitoModulePlacesCreatePlacesStream extends Migration
      * @var array
      */
     protected $assignments = [
+        "related_hut" => [
+            "required" => true
+        ],
+        'log_date' => [
+            "required" => true
+        ],
+        'log' => [
+            "required" => true
+        ],
         'name' => [
-            'translatable' => true,
-            'required' => true,
+            'required' => false,
         ],
-        'name_slug' => [
-            'required' => true,
-        ],
-        'place_slug' => [
-            'required' => true,
-        ],
-        "fid",
-        "place",
-        "region",
-        "facilities",
-        "static_link",
-        "asset_id",
-        "date_loaded_to_gis",
-        "latitude",
-        "longitude",
-        "thumbnail"
     ];
 
 }

@@ -21,13 +21,11 @@
     {% include "theme::partials/header" %}
 
     <main id="main">
-        <div class="container">
 
-            {% include "theme::partials/messages" %}
+        {% include "theme::partials/messages" %}
 
-            {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
-        </div>
     </main>
 
     {% include "theme::partials/footer" %}

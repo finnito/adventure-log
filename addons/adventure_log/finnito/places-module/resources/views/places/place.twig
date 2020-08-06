@@ -1,0 +1,41 @@
+{% htmlcompress %}
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ms lt_ie7" lang="en"><![endif]-->
+<!--[if IE 7]>
+<html class="nojs ms ie7" lang="en"><![endif]-->
+<!--[if IE 8]>
+<html class="nojs ms ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]>
+<html class="nojs ms" lang="en"><![endif]-->
+
+<html lang="{{ config('app.locale') }}">
+
+    <head>
+        {% include "theme::partials/metadata" %}
+    </head>
+
+    <body>
+
+    {% include "theme::partials/header" %}
+
+    <main id="main">
+
+        {% include "theme::partials/messages" %}
+
+        <h2>Huts in {{ place }}</h2>
+        <ul>
+        {% for hut in huts %}
+            <li><a href="/places/{{ hut.place_slug }}/{{ hut.name_slug }}">{{ hut.name }}</a></li>
+        {% endfor %}
+        </ul>
+
+    </main>
+
+    {% include "theme::partials/footer" %}
+    {% include "theme::partials/assets" %}
+
+    </body>
+</html>
+{% endhtmlcompress %}

@@ -38,7 +38,7 @@ class PlaceTableBuilder extends TableBuilder
      */
     protected $buttons = [
         'Open' => [
-            'href' => '/{entry.slug}',
+            'href' => '/{entry.place_slug}/{entry.name_slug}/',
             'text' => 'View',
             'icon' => 'folder-open',
             'type' => 'success',

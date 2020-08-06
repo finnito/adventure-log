@@ -1,0 +1,76 @@
+{% htmlcompress %}
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ms lt_ie7" lang="en"><![endif]-->
+<!--[if IE 7]>
+<html class="nojs ms ie7" lang="en"><![endif]-->
+<!--[if IE 8]>
+<html class="nojs ms ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]>
+<html class="nojs ms" lang="en"><![endif]-->
+
+<html lang="{{ config('app.locale') }}">
+
+    <head>
+        {% include "theme::partials/metadata" %}
+    </head>
+
+    <body>
+
+    {% include "theme::partials/header" %}
+
+    <main id="main">
+
+        {% include "theme::partials/messages" %}
+        <div class="flex">
+            <h2>{{ hut.name }}</h2>
+            <span>{{ hut.place }}</span>
+        </div>
+        <ul>
+            <li><a href="{{ hut.static_link }}">View on DOC</a></li>
+            <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
+        </ul>
+
+        <h3>Make a Log</h3>
+        {{ 
+            form('LogFormBuilder')
+        }}
+
+        <h3>Previous Logs</h3>
+        {% if logs|length == 0 %}
+            <p>No logs yet. Be the first?</p>
+        {% else %}
+            <ul class="logs">
+            {% for log in logs %}
+                <li>
+                    <p class="flex">
+                        <span>{{ log.log_date.format('D d F, Y') }}</span>
+                        <span>{{ log.name }}</span>
+                    </p>
+                    <p>{{ log.log }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </main>
+
+    <script>
+    (function (window, document) {
+        document.querySelector("select[name='related_hut']").value = {{ hut.id }};
+        var date = new Date();
+        dateString = date.getFullYear()
+            + "-"
+            + ("0" + (date.getMonth() + 1)).slice(-2)
+            + "-"
+            + ("0" + date.getDate()).slice(-2);
+        document.querySelector("input[name='log_date']").value = dateString;
+    })(window, document);
+    </script>
+
+    {% include "theme::partials/footer" %}
+    {% include "theme::partials/assets" %}
+
+    </body>
+</html>
+{% endhtmlcompress %}

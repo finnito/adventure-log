@@ -82,7 +82,8 @@
         "anomaly/html_block-extension": "~1.0.0",
         "anomaly/wysiwyg_block-extension": "~1.0.0",
         "pyrocms/starter-theme": "~1.0.0",
-        "pyrocms/accelerant-theme": "~1.2.0"
+        "pyrocms/accelerant-theme": "~1.2.0",
+        "nickurt/laravel-akismet": "~1.6"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -90,8 +91,7 @@
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "anomaly/installer-module": "~2.3.0"
+        "symfony/dom-crawler": "3.1.*"
     },
     "repositories": [
         {

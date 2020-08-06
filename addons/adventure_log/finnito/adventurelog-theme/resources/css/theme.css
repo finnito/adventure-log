@@ -143,6 +143,7 @@ form:not([role="search"]) {
   padding: 0.5rem;
   background-color: #ecf0f1;
   border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.16), 0 0 10px rgba(0,0,0,0.23);
 }
 
 form[role="search"] .input-group {
@@ -276,7 +277,8 @@ ul.logs {
 
 ul.logs li {
   background-color: #ecf0f1;
-  border-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
   border-left: 4px solid #f39c12;
   padding: 0.5rem;
   margin: 1rem 0;
@@ -289,6 +291,11 @@ ul.logs li p.flex span:first-of-type {
 
 ul.logs li p:last-of-type {
   margin-bottom: 0;
+  white-space: pre-wrap;
+}
+
+ul.logs li a {
+  color: black;
 }
 
 .control-label {margin-top: 0.5rem;}

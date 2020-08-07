@@ -456,6 +456,7 @@ footer hr {
 
   .nav-wrapper {
     position: relative;
+    left: 0;
     transform: translateX(0);
     /*height: auto;*/
     top: 0;

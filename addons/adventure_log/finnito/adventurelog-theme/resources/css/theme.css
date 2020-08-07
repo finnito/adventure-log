@@ -445,7 +445,7 @@ footer hr {
   .hamburger p { display: block; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   .toggle ~ .nav-wrapper {
     transform: none;
   }

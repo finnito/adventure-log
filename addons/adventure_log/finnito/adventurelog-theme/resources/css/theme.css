@@ -219,6 +219,11 @@ label, legend, fieldset {
  * ================
  */
 
+p a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .alert {
   margin: 1rem 0;
   border-radius: 0.25rem;

@@ -32,12 +32,18 @@
             <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
         </ul>
 
-        <h3>Make a Log</h3>
+        <h3 id="make-a-log">
+            Make a Log
+            <a href="#make-a-log" class="heading-anchor"><sup>🔗</sup></a>
+        </h3>
         {{ 
             form('LogFormBuilder')
         }}
 
-        <h3>Previous Logs</h3>
+        <h3 id="previous-logs">
+            Previous Logs
+            <a href="#previous-logs" class="heading-anchor"><sup>🔗</sup></a>
+        </h3>
         {% if logs|length == 0 %}
             <p>No logs yet. Be the first?</p>
         {% else %}

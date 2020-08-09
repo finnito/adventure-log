@@ -30,7 +30,10 @@
             .orderBy("created_at", "DESC")
             .limit(5)
             .get() %}
-        <h3>5 Most Recent Logs</h3>
+        <h3 id="recent-logs">
+            5 Most Recent Logs
+            <a href="#recent-logs" class="heading-anchor"><sup>🔗</sup></a>
+        </h3>
         {% if logs|length == 0 %}
             <p>No logs yet. Be the first?</p>
         {% else %}
@@ -55,7 +58,10 @@
             .orderBy("place")
             .get(["place_slug", "place"]) %}
 
-        <h3>Places</h3>
+        <h3 id="places">
+            Places
+            <a href="#places" class="heading-anchor"><sup>🔗</sup></a>
+        </h3>
         <ul>
         {% for place in places %}
             <li><a href="/places/{{ place.place_slug }}">{{ place.place }}</a></li>

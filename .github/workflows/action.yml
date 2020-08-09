@@ -3,15 +3,16 @@ on: [push]
 
 jobs:
   build:
-    name: Deploy
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: rsync-with-ssh-github-actions
-        uses: BuildPC/rsync-with-ssh-github-actions@1.0.1
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
         with:
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
             host: ${{ secrets.SERVER_IP }}
+            username: ${{ secrets.SERVER_USER }}
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.SERVER_PORT }}
-            user: ${{ secrets.SERVER_USER }}
-            ssh_after: |
+            script: |
+              cd /srv/adventurelog.nz/
               bash deploy.sh

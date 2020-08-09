@@ -62,7 +62,7 @@ small, sub, sup {
 
 .desktop { display: none; }
 
-.mobile { display: inline-block; }
+.mobile { display: inherit; }
 
 
 hr {

@@ -49,9 +49,9 @@
         {% else %}
             <ul class="logs">
             {% for log in logs %}
-                <li>
+                <li id="log-{{ log.id }}">
                     <p class="flex">
-                        <span>{{ log.log_date.format('D d F, Y') }}</span>
+                        <span><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
                         <span>{{ log.name }}</span>
                     </p>
                     <p>{{ log.log }}</p>

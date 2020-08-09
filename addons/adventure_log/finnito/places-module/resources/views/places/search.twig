@@ -30,7 +30,15 @@
         {% for result in results %}
             <li>
                 <a href="/places/{{ result.place_slug }}/{{ result.name_slug }}/">
-                    {{ result.name }} <small>> {{ result.place }}</small>
+                    🏡 {{ result.name }} <small>> {{ result.place }}</small>
+                </a>
+                
+            </li>
+        {% endfor %}
+        {% for result in placeResults %}
+            <li>
+                <a href="/places/{{ result.place_slug }}/">
+                    🧭 {{ result.place }} <small>> {{ result.region }}</small>
                 </a>
                 
             </li>

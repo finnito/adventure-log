@@ -15,12 +15,14 @@ class SearchController extends PublicController
      */
     public function search(PlaceModel $model, Request $request)
     {
-        $results = $model->search($request->q)->get();
+        $hutResults = $model->search($request->q)->get();
+        $placeResults = $model->newQuery()->where("place", "like", "%".$request->q."%")->groupBy("place")->get();
         $this->template->set("meta_title", "Search results for '" . $request->q . "'");
         return $this->view->make(
             'finnito.module.places::places/search',
             [
-                'results' => $results,
+                'results' => $hutResults,
+                'placeResults' => $placeResults,
                 "query" => $request->q
             ]
         );

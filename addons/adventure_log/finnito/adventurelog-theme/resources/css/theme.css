@@ -218,11 +218,6 @@ label, legend, fieldset {
  */
 .heading-anchor { text-decoration: none; }
 
-:target::before {
-  content: "➡️";
-  margin-right: 0.5rem;
-}
-
 :target,
 ul.logs li:target {
   background-color: #f9ca24;

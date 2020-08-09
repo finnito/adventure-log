@@ -56,6 +56,13 @@ return [
         '_ENV' => [
             'APP_KEY',
             'DB_PASSWORD',
+            'GITHUB_ACCESS_TOKEN',
+            'AKISMET_APIKEY',
+            'DB_USERNAME',
+            'DB_DATABASE',
+            'DB_PORT',
+            'DB_HOST',
+            'DB_CONNECTION',
         ],
 
         '_SERVER' => [

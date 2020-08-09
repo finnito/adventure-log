@@ -35,6 +35,11 @@ class PlacesModule extends Module
                 'new_log',
             ],
         ],
+        'feedback' => [
+            'buttons' => [
+                'new_feedback',
+            ],
+        ],
     ];
 
 }

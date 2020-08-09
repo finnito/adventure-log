@@ -1,6 +1,10 @@
 <?php namespace Finnito\PlacesModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Finnito\PlacesModule\Feedback\Contract\FeedbackRepositoryInterface;
+use Finnito\PlacesModule\Feedback\FeedbackRepository;
+use Anomaly\Streams\Platform\Model\Places\PlacesFeedbackEntryModel;
+use Finnito\PlacesModule\Feedback\FeedbackModel;
 use Finnito\PlacesModule\Log\Contract\LogRepositoryInterface;
 use Finnito\PlacesModule\Log\LogRepository;
 use Anomaly\Streams\Platform\Model\Places\PlacesLogsEntryModel;
@@ -11,6 +15,7 @@ use Anomaly\Streams\Platform\Model\Places\PlacesPlacesEntryModel;
 use Finnito\PlacesModule\Place\PlaceModel;
 use Illuminate\Routing\Router;
 use \Finnito\PlacesModule\Log\Form\LogFormBuilder;
+use \Finnito\PlacesModule\Feedback\Form\FeedbackFormBuilder;
 
 class PlacesModuleServiceProvider extends AddonServiceProvider
 {
@@ -49,6 +54,9 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $routes = [
+        'admin/places/feedback'           => 'Finnito\PlacesModule\Http\Controller\Admin\FeedbackController@index',
+        'admin/places/feedback/create'    => 'Finnito\PlacesModule\Http\Controller\Admin\FeedbackController@create',
+        'admin/places/feedback/edit/{id}' => 'Finnito\PlacesModule\Http\Controller\Admin\FeedbackController@edit',
         'admin/places/logs'           => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@index',
         'admin/places/logs/create'    => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@create',
         'admin/places/logs/edit/{id}' => 'Finnito\PlacesModule\Http\Controller\Admin\LogsController@edit',
@@ -59,6 +67,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
         "/places/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@index',
         "/places/{place_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@place',
         "/places/{place_slug}/{name_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@hut',
+        "/feedback" => 'Finnito\PlacesModule\Http\Controller\FeedbackController@index',
     ];
 
     /**
@@ -105,7 +114,8 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $aliases = [
-        'LogFormBuilder' => LogFormBuilder::class
+        'LogFormBuilder' => LogFormBuilder::class,
+        'FeedbackFormBuilder' => FeedbackFormBuilder::class
     ];
 
     /**
@@ -114,6 +124,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $bindings = [
+        PlacesFeedbackEntryModel::class => FeedbackModel::class,
         PlacesLogsEntryModel::class => LogModel::class,
         PlacesPlacesEntryModel::class => PlaceModel::class,
     ];
@@ -124,6 +135,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $singletons = [
+        FeedbackRepositoryInterface::class => FeedbackRepository::class,
         LogRepositoryInterface::class => LogRepository::class,
         PlaceRepositoryInterface::class => PlaceRepository::class,
     ];

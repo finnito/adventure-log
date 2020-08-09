@@ -11,4 +11,9 @@ return [
         'write',
         'delete',
     ],
+    'feedback' => [
+        'read',
+        'write',
+        'delete',
+    ],
 ];

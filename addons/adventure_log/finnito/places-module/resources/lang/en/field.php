@@ -17,5 +17,14 @@ return [
         "label" => "Your Name/Pseudonym",
         "instructions" => "Optional - leave it blank for an anonymous log.",
         "placeholder" => "Spock"
-    ]
+    ],
+    "title" => [
+        "label" => "Issue Title",
+        "instructions" => "A concise few words describing your feedback.",
+        "placeholder" => "[Bug/Feature]: Your title here..",
+    ],
+    "description" => [
+        "label" => "Description",
+        "instructions" => "A detailed description of your feedback.",
+    ],
 ];

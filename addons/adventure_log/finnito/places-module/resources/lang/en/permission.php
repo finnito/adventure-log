@@ -17,4 +17,12 @@ return [
             'delete' => 'Can delete logs?',
         ],
     ],
+    'feedback' => [
+        'name'   => 'Feedback',
+        'option' => [
+            'read'   => 'Can read feedback?',
+            'write'  => 'Can create/edit feedback?',
+            'delete' => 'Can delete feedback?',
+        ],
+    ],
 ];

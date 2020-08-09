@@ -7,4 +7,7 @@ return [
     'logs' => [
         'name' => 'Logs',
     ],
+    'feedback' => [
+        'name' => 'Feedback',
+    ],
 ];

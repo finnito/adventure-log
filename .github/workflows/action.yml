@@ -11,7 +11,7 @@ jobs:
         with:
             host: ${{ secrets.SERVER_IP }}
             username: ${{ secrets.SERVER_USER }}
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            password: ${{ secrets.SSH_PASSWORD }}
             port: ${{ secrets.SERVER_PORT }}
             script: |
               cd /srv/adventurelog.nz/

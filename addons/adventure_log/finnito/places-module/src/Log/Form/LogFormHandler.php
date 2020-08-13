@@ -4,6 +4,7 @@ use \Finnito\PlacesModule\Log\Form\LogFormBuilder;
 use \nickurt\Akismet\Akismet;
 use Illuminate\Http\Request;
 use \Anomaly\Streams\Platform\Message\MessageBag;
+use \Anomaly\Streams\Platform\Http\HttpCache;
 
 class LogFormHandler
 {
@@ -17,8 +18,9 @@ class LogFormHandler
         Request $request,
         MessageBag $bag,
         Akismet $akismet,
-        LogFormBuilder $builder)
-    {
+        LogFormBuilder $builder,
+        HttpCache $cache
+    ) {
         $values = $builder->getFormValues();
         $akismet->setApiKey(env("AKISMET_APIKEY"));
         $akismet->fill([
@@ -42,6 +44,7 @@ class LogFormHandler
                 }
 
                 $builder->saveForm();
+                $cache->purge($request->headers->get("referer"));
             }
         } else {
             $bag->info("There was an error with Akismet");

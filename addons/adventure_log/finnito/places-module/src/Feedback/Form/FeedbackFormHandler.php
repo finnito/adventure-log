@@ -4,6 +4,7 @@ use \Finnito\PlacesModule\Feedback\Form\FeedbackFormBuilder;
 use \nickurt\Akismet\Akismet;
 use Illuminate\Http\Request;
 use \Anomaly\Streams\Platform\Message\MessageBag;
+use \Anomaly\Streams\Platform\Http\HttpCache;
 
 class FeedbackFormHandler
 {
@@ -17,8 +18,9 @@ class FeedbackFormHandler
         Request $request,
         MessageBag $bag,
         Akismet $akismet,
-        FeedbackFormBuilder $builder)
-    {
+        FeedbackFormBuilder $builder,
+        HttpCache $cache
+    ) {
         $values = $builder->getFormValues();
         $akismet->setApiKey(env("AKISMET_APIKEY"));
         $akismet->fill([
@@ -31,8 +33,8 @@ class FeedbackFormHandler
             "blog" => env("AKISMET_BLOGURL")
 
         ]);
-        if($akismet->validateKey()) {
-            if($akismet->isSpam()) {
+        if ($akismet->validateKey()) {
+            if ($akismet->isSpam()) {
                 $bag->info("Your feedback was marked as SPAM. If this is an error, please email Finn.");
             } else {
                 $bag->success("Thank you for your feedback! You can view it <a href='https://github.com/finnito/adventure-log/issues'>by clicking here</a>.");
@@ -64,10 +66,10 @@ class FeedbackFormHandler
                 $context = stream_context_create($opts);
                 $content = json_decode(file_get_contents($url, false, $context));
                 $builder->saveForm();
+                $cache->purge('/feedback');
             }
         } else {
             $bag->info("There was an error with Akismet");
-        }
-        
+        }    
     }
 }

@@ -465,6 +465,11 @@ footer hr {
     transform: none;
   }
 
+  input[type=checkbox].toggle,
+  .hamburger {
+    display: none;
+  }
+
   .desktop { display: block; }
 
   .menu li { display: inline-block; margin: 0 0.25rem; }

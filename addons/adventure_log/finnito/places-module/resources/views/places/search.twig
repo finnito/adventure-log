@@ -24,8 +24,8 @@
 
         {% include "theme::partials/messages" %}
 
-        <h2>{{ results|length }} result{% if (results|length > 1) or (results|length == 0) %}s{% endif %} for <em>"{{ query }}"</em></h2>
-        {% if results|length > 0 %}
+        <h2>{{ resultCount }} result{% if (resultCount > 1) or (resultCount == 0) %}s{% endif %} for <em>"{{ query }}"</em></h2>
+        {% if resultCount > 0 %}
         <ul class="results">
         {% for result in results %}
             <li>

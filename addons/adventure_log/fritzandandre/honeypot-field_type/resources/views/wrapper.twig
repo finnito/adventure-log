@@ -1,0 +1,37 @@
+{{ asset_add('styles.css', 'fritzandandre.field_type.honeypot::scss/honeypot.scss') }}
+
+{# I've removed most of the classes here because I want it to be less obvious to bots that this is a honeypot field #}
+<div class="winnie-the-pooh">
+
+    {% if field_type.object.label != false and field_type.config.disable_label != true %}
+        <label class="control-label">
+            {{ field_type.object.label|raw }}
+
+            {% if field_type.required %}
+                <span class="required">*</span>
+            {% endif %}
+
+            {% if field_type.locale %}
+                {% include "streams::form/partials/translations" %}
+            {% endif %}
+        </label>
+    {% endif %}
+
+    {% if field_type.instructions %}
+        <p class="text-muted">{{ field_type.instructions|raw }}</p>
+    {% endif %}
+
+    {% if field_type.warning %}
+        <p class="help-block">
+            <span class="text-warning">
+                {{ icon('warning') }}
+                {{ field_type.warning|raw }}
+            </span>
+        </p>
+    {% endif %}
+
+    <div>
+        {{ field_type.input|raw }}
+    </div>
+
+</div>

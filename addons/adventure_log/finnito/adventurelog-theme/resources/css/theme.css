@@ -4,6 +4,12 @@
  * Project: https://github.com/oxalorg/sakura/
  */
 /* Body */
+.winnie-the-pooh {
+  position: absolute;
+  top: -2000000px;
+  left: -2000000px;
+}
+
 html {
   font-size: 16px; 
   min-height: 100vh;

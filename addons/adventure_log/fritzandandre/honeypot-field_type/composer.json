@@ -1,0 +1,9 @@
+{
+    "name": "fritzandandre/honeypot-field_type",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Fritzandandre\\HoneypotFieldType\\": "src/"
+        }
+    }
+}

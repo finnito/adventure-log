@@ -12,7 +12,12 @@ class FeedbackFormBuilder extends FormBuilder
      *
      * @var array|string
      */
-    protected $fields = [];
+    protected $fields = [
+        "*",
+        "honeypot" => [
+            "type" => "fritzandandre.field_type.honeypot",
+        ],
+    ];
 
     /**
      * Additional validation rules.

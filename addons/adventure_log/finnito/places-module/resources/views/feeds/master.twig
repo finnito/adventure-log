@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ config('app.name') }}</title>
+        <description>This feed compiles all logs for all huts in New Zealand, as well as any website news.</description>
+        <link>{{ url('/') }}</link>
+        <atom:link href="{{ url_current() }}" rel="self" type="application/rss+xml"/>
+        {% for entry in entries %}
+            {% if entry.object.table == "places_logs" %}
+            <item>
+                <title>{{ entry.related_hut.name }}</title>
+                <description>Log Date: {{ entry.log_date.date() }}<br/>{{ nl2br(entry.log) }}</description>
+                <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
+                <link>{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</link>
+                <guid isPermaLink="true">{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</guid>
+            </item>
+            {% else %}
+            <item>
+                <title>{{ entry.title }}</title>
+                <description>{{ nl2br(entry.content) }}</description>
+                <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
+                <link>{{ url('/') }}/posts/{{ entry.slug }}</link>
+                <guid isPermaLink="true">{{ url('/') }}/posts/{{ entry.slug }}</guid>
+            </item>
+            {% endif %}
+        {% endfor %}
+    </channel>
+</rss>

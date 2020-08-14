@@ -64,9 +64,18 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
         'admin/places/create'    => 'Finnito\PlacesModule\Http\Controller\Admin\PlacesController@create',
         'admin/places/edit/{id}' => 'Finnito\PlacesModule\Http\Controller\Admin\PlacesController@edit',
         '/places/search/'         => 'Finnito\PlacesModule\Http\Controller\SearchController@search',
+        '/feed.xml' => 'Finnito\PlacesModule\Http\Controller\FeedController@index',
+        "/places/{place_slug}/feed.xml" => 'Finnito\PlacesModule\Http\Controller\FeedController@place',
+        "/places/{place_slug}/{name_slug}/feed.xml" => 'Finnito\PlacesModule\Http\Controller\FeedController@hut',
         "/places/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@index',
-        "/places/{place_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@place',
-        "/places/{place_slug}/{name_slug}/" => 'Finnito\PlacesModule\Http\Controller\PlaceController@hut',
+        "/places/{place_slug}/" => [
+            "as" => "finnito.module.places::places.place",
+            "uses" => 'Finnito\PlacesModule\Http\Controller\PlaceController@place',
+        ],
+        "/places/{place_slug}/{name_slug}/" => [
+            'as' => 'finnito.module.places::places.hut',
+            "uses" => 'Finnito\PlacesModule\Http\Controller\PlaceController@hut'
+        ],
         "/feedback" => 'Finnito\PlacesModule\Http\Controller\FeedbackController@index',
     ];
 

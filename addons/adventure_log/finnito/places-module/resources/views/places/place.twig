@@ -25,6 +25,9 @@
         {% include "theme::partials/messages" %}
 
         <h2>Huts in {{ place }}</h2>
+
+        <p><a href="feed.xml" class="button good">Subscribe to Logs in This Area (RSS)</a></p>
+
         <ul>
         {% for hut in huts %}
             <li><a href="/places/{{ hut.place_slug }}/{{ hut.name_slug }}">{{ hut.name }}</a></li>

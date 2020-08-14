@@ -187,17 +187,17 @@ form[role="search"] .input-group button {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #2c8898;
+  background-color: #6ab04c;
   color: #f9f9f9;
-  border-radius: 1px;
-  border: 1px solid #2c8898;
+  border-radius: 0.25rem;
+  border: 1px solid #6ab04c;
   cursor: pointer;
   box-sizing: border-box; }
   .button[disabled], button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
     cursor: default;
     opacity: .5; }
-  .button:focus:enabled, .button:hover:enabled, button:focus:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
-    background-color: #4a7b35;
+  .button:hover, .button:focus:enabled, .button:hover:enabled, button:focus:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
+    background-color: #6ab04c;
     color: #f9f9f9;}
 
 textarea, select, input[type] {

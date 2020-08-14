@@ -8,7 +8,7 @@
             {% if entry.object.table == "places_logs" %}
             <item>
                 <title>{{ entry.related_hut.name }}</title>
-                <description>Log Date: {{ entry.log_date.date() }}<br/>{{ nl2br(entry.log) }}</description>
+                <description><p>Log Date: {{ entry.log_date.date() }}<br/>{{ nl2br(entry.log) }}</p></description>
                 <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
                 <link>{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</link>
                 <guid isPermaLink="true">{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</guid>
@@ -16,7 +16,7 @@
             {% else %}
             <item>
                 <title>{{ entry.title }}</title>
-                <description>{{ nl2br(entry.content) }}</description>
+                <description>{{ nl2br(entry.markdown_content) }}</description>
                 <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
                 <link>{{ url('/') }}/posts/{{ entry.slug }}</link>
                 <guid isPermaLink="true">{{ url('/') }}/posts/{{ entry.slug }}</guid>

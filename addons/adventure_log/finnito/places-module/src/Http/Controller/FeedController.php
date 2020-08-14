@@ -19,7 +19,7 @@ class FeedController extends PublicController
     public function index(Request $request, LogRepositoryInterface $logs, PostRepositoryInterface $posts)
     {
         $entries = $logs->all()
-            ->merge($posts->all())
+            ->concat($posts->all())
             ->sortByDesc("created_at");
         $content = $this->view->make(
             'finnito.module.places::feeds/master',

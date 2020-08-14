@@ -77,6 +77,7 @@ class PlacesModuleServiceProvider extends AddonServiceProvider
             "uses" => 'Finnito\PlacesModule\Http\Controller\PlaceController@hut'
         ],
         "/feedback" => 'Finnito\PlacesModule\Http\Controller\FeedbackController@index',
+        "/flag/log/{id}" => "Finnito\PlacesModule\Http\Controller\PlaceController@flagLog",
     ];
 
     /**

@@ -27,7 +27,11 @@ class LogFormBuilder extends FormBuilder
      *
      * @var array|string
      */
-    protected $skips = [];
+    protected $skips = [
+        "is_flagged",
+        "is_spam",
+        "is_reviewed",
+    ];
 
     /**
      * The form actions.

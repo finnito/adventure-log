@@ -222,6 +222,17 @@ label, legend, fieldset {
 /* Custom CSS
  * ================
  */
+
+.flag {
+  color: darkgrey;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.flag:hover, .flag:active { font-weight: 500; }
+
 .heading-anchor { text-decoration: none; margin: 0 0.5rem 0 0;}
 
 :target,

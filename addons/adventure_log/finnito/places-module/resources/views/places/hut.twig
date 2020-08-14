@@ -55,7 +55,10 @@
                         <span><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
                         <span>{{ log.name }}</span>
                     </p>
-                    <p>{{ log.log }}</p>
+                    <p class="flex">
+                        <span>{{ log.log }}</span>
+                        <span><a class="flag" href="/flag/log/{{ log.id }}">🔸 Flag as Spam</a></span>
+                    </p>
                 </li>
             {% endfor %}
             </ul>

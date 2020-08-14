@@ -17,14 +17,26 @@ class LogTableBuilder extends TableBuilder
      *
      * @var array|string
      */
-    protected $filters = [];
+    protected $filters = [
+        "is_reviewed",
+        "is_flagged",
+    ];
 
     /**
      * The table columns.
      *
      * @var array|string
      */
-    protected $columns = [];
+    protected $columns = [
+        "is_flagged" => [
+            "heading" => "🔶"
+        ],
+        "is_reviewed" => [
+            "heading" => "👁"
+        ],
+        "related_hut",
+        "log",
+    ];
 
     /**
      * The table buttons.
@@ -32,7 +44,13 @@ class LogTableBuilder extends TableBuilder
      * @var array|string
      */
     protected $buttons = [
-        'edit'
+        'edit',
+        "review" => [
+            'text' => 'Review',
+        ],
+        "unflag" => [
+            "text" => "Un-Flag",
+        ],
     ];
 
     /**

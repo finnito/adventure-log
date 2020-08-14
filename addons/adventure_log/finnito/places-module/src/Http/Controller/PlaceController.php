@@ -75,7 +75,9 @@ class PlaceController extends PublicController
         $related_logs = $logs
             ->newQuery()
             ->where([
-                ["related_hut_id", "=", $hut->id]
+                ["related_hut_id", "=", $hut->id],
+                ["is_flagged", 0],
+                ["is_spam", 0],
             ])
             ->orderBy("log_date", "DESC")
             ->get();
@@ -89,6 +91,16 @@ class PlaceController extends PublicController
                 "logs" => $related_logs
             ]
         );
+    }
+
+
+    public function flagLog(LogRepositoryInterface $logs, $id)
+    {
+        $logs
+            ->newQuery()
+            ->where('id', $id)
+            ->update(array("is_flagged" => 1));
+        return redirect()->back();
     }
 
 }

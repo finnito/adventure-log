@@ -10,6 +10,7 @@ return [
     ],
     "log" => [
         "label" => "Your Log",
+        "name" => "Log",
         "instructions" => "Any helpful information. Was there firewood? Were there trees down on the track? etc.\nLimited to 500 characters.",
         "placeholder" => "Your log.."
     ],
@@ -26,5 +27,17 @@ return [
     "description" => [
         "label" => "Description",
         "instructions" => "A detailed description of your feedback.",
+    ],
+    "is_reviewed" => [
+        "name" => "Reviewed",
+    ],
+    "is_spam" => [
+        "name" => "Spam",
+    ],
+    "is_flagged" => [
+        "name" => "Flagged",
+    ],
+    "related_hut" => [
+        "name" => "Hut",
     ],
 ];

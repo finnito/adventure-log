@@ -3,6 +3,7 @@
 use Finnito\PlacesModule\Log\Form\LogFormBuilder;
 use Finnito\PlacesModule\Log\Table\LogTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Finnito\PlacesModule\Log\Contract\LogRepositoryInterface;
 
 class LogsController extends AdminController
 {
@@ -39,5 +40,23 @@ class LogsController extends AdminController
     public function edit(LogFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    public function review(LogRepositoryInterface $logs, $id)
+    {
+        $logs
+            ->newQuery()
+            ->where('id', $id)
+            ->update(array("is_reviewed" => 1));
+        return redirect()->back();
+    }
+
+    public function unflag(LogRepositoryInterface $logs, $id)
+    {
+        $logs
+            ->newQuery()
+            ->where('id', $id)
+            ->update(array("is_flagged" => 0));
+        return redirect()->back();
     }
 }

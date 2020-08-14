@@ -25,7 +25,7 @@
         {% include "theme::partials/messages" %}
         <div class="flex">
             <h2>{{ hut.name }}</h2>
-            <span>{{ hut.place }}</span>
+            <span><small><a class="flag" href="/places/{{ hut.place_slug }}/">{{ hut.place }}</a></small></span>
         </div>
         <ul>
             <li><a href="{{ hut.static_link }}">View on DOC</a></li>

@@ -237,7 +237,7 @@ label, legend, fieldset {
   font-weight: 300;
 }
 
-.flag:hover, .flag:active { font-weight: 500; }
+.flag:active, .flag:hover { color: #eb4d4b; }
 
 .heading-anchor { text-decoration: none; margin: 0 0.5rem 0 0;}
 

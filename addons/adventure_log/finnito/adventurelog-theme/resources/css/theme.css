@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
   margin: auto;
   color: #4a4a4a;
-  background-color: #f9f9f9;
+  background-color: white;
   padding: 13px; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,7 +111,7 @@ form[role="search"] .input-group button {
 
 .button, button, input[type="submit"], input[type="reset"], input[type="button"] {
   padding: 5px 10px;
-  background-color: #6ab04c;
+  background-color: #497934;
   color: #f9f9f9;
   border-radius: 0.25rem;
   border: none;
@@ -129,7 +129,8 @@ textarea, select, input[type] {
   padding: 6px 10px;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  border: 1px solid #4a4a4a;}
+  border: 1px solid #4a4a4a;
+  font-size: 1rem;}
 
 input[type="checkbox"]:focus {
   outline: 1px dotted #2c8898; }
@@ -180,13 +181,13 @@ p a {
 .alert.warning { background-color: #ffbe76; }
 .alert.danger { background-color: #ff7979; }
 
-input.valid { border: 1px solid #6ab04c;}
+input.valid { border: 1px solid #497934;}
 input.invalid { border: 1px solid #ff7979;}
 
 form:not([role="search"]) button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #6ab04c;
+  background-color: #497934;
   border: none;
   border-radius: 0.25rem;
   font-weight: 700;
@@ -244,7 +245,8 @@ ul.logs li p:last-of-type {
 }
 
 ul.logs li a {
-  color: black;
+  color: #497934;
+  text-decoration: none;
 }
 
 .control-label + p.text-muted {

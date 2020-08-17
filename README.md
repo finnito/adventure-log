@@ -19,6 +19,18 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 1.2 - 2020/08/17
+
+Tonight's little release brings some minor improvements.
+
+- Fixes to the RSS feeds to ensure entries are not overwritten using `->merge()`
+- Improvements to the deploy script [#12](https://github.com/finnito/adventure-log/issues/12)
+- Minor changes to button copy [#30](https://github.com/finnito/adventure-log/issues/30)
+- Added HTML meta tag integration for SEO [#6](https://github.com/finnito/adventure-log/issues/6)
+- Removes unused CSS rules for smaller payload [#31](https://github.com/finnito/adventure-log/issues/31)
+- Validates the `log_date` input with quick and dirty regex in lieu of a datepicker JS library [#5](https://github.com/finnito/adventure-log/issues/5)
+- Adds extra resources to the Safety page.
+
 ### 1.1 - 2020/08/14
 
 Tonight's release brings together a series of improvements that I have brainstormed and worked on over the last week.

@@ -25,7 +25,8 @@ class SearchController extends PublicController
             ->where("place", "like", "%".$request->q."%")
             ->groupBy("place")
             ->get();
-        $this->template->set("meta_title", "Search results for '" . $request->q . "'");
+        $this->template->set("meta_title", "Search");
+        $this->template->set("meta_description", "Search results for '" . $request->q . "'");
         return $this->view->make(
             'finnito.module.places::places/search',
             [

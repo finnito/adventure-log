@@ -21,6 +21,10 @@ class IntegerFieldTypeModifier extends FieldTypeModifier
      */
     public function modify($value)
     {
+        if (is_null($value) && !$this->fieldType->isRequired()){
+           return parent::modify($value);
+        }
+        
         if (!is_integer($value)) {
             $value = (int)preg_replace('/\D/', '', $value);
         }

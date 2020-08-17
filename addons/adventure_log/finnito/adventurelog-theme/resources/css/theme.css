@@ -78,11 +78,11 @@ input, textarea {width: 100%;}
 textarea {
   width: 100%; }
 
-/*form:not([role="search"]) {
+form:not([role="search"]) {
   padding: 0.5rem;
   background-color: #ecf0f1;
   border-radius: 0.25rem;
-}*/
+}
 
 form[role="search"] .input-group {
   display: flex;

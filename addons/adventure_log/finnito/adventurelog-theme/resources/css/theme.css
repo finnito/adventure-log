@@ -1,9 +1,3 @@
-/* Sakura.css v1.3.1
- * ================
- * Minimal css theme.
- * Project: https://github.com/oxalorg/sakura/
- */
-/* Body */
 .winnie-the-pooh {
   position: absolute;
   top: -2000000px;
@@ -70,7 +64,6 @@ small, sub, sup {
 
 .mobile { display: inherit; }
 
-
 hr {
   border: none;
   background-color: #2c3e50;
@@ -80,73 +73,17 @@ a {
   text-decoration: none;
   color: #497934; }
   a:hover {
-    color: #eb4d4b;
-    border-bottom: 1px solid v; }
+    color: #eb4d4b; }
 
-ul {
-  padding-left: 1.4em;
-  margin-top: 0px;
-  margin-bottom: 2.5rem; }
-
-li {
-  margin-bottom: 0.4em; }
+ul {margin-top: 0px;}
 
 blockquote {
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 1em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  padding-right: 0.8em;
+  margin: 1rem 0;
+  padding: 0.5rem;
   border-left: 2px solid #6ab04c;
-  /*margin-bottom: 2.5rem;*/
   background-color: #f1f1f1; }
 
-blockquote p {
-  margin-bottom: 0; }
-
-img {
-  height: auto;
-  max-width: 100%;
-  margin-top: 0px;
-  margin-bottom: 2.5rem; }
-
-/* Pre and Code */
-pre {
-  background-color: #f1f1f1;
-  display: block;
-  padding: 1em;
-  overflow-x: auto;
-  margin-top: 0px;
-  margin-bottom: 2.5rem; }
-
-code {
-  font-size: 0.9em;
-  padding: 0 0.5em;
-  background-color: #f1f1f1;
-  white-space: pre-wrap; }
-
-pre > code {
-  padding: 0;
-  background-color: transparent;
-  white-space: pre; }
-
-/* Tables */
-table {
-  text-align: justify;
-  width: 100%;
-  border-collapse: collapse; }
-
-td, th {
-  padding: 0.5em;
-  border-bottom: 1px solid #f1f1f1; }
-
-/* Buttons, forms and input */
-input, textarea {
-  border: 1px solid #4a4a4a; 
-  width: 100%; }
-  input:focus, textarea:focus {
-    border: 1px solid #2c8898; }
+input, textarea {width: 100%;}
 
 textarea {
   width: 100%; }
@@ -168,7 +105,6 @@ form[role="search"] .input-group button,
 form[role="search"] .input-group input {
   border-radius: 0;
   margin: 0;
-  margin-bottom: 0;
   font-size: 1rem;
 }
 
@@ -176,10 +112,7 @@ form[role="search"] .input-group input {
   flex-grow: 1;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-  border-top: 1px solid #bdc3c7;
-  border-left: 1px solid #bdc3c7;
-  border-bottom: 1px solid #bdc3c7;
-  border-right: 1px solid transparent;
+  border: 1px solid #bdc3c7;
 }
 
 form[role="search"] .input-group button {
@@ -188,41 +121,33 @@ form[role="search"] .input-group button {
 }
 
 .button, button, input[type="submit"], input[type="reset"], input[type="button"] {
-  display: inline-block;
   padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
   background-color: #6ab04c;
   color: #f9f9f9;
   border-radius: 0.25rem;
-  border: 1px solid #6ab04c;
-  cursor: pointer;
-  box-sizing: border-box; }
-  .button[disabled], button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
-    cursor: default;
-    opacity: .5; }
-  .button:hover, .button:focus:enabled, .button:hover:enabled, button:focus:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
-    background-color: #6ab04c;
+  border: none;
+  cursor: pointer;}
+
+.button:hover,
+.button:focus:enabled,
+.button:hover:enabled,
+button:focus:enabled,
+button:hover:enabled {
     color: #f9f9f9;}
 
 textarea, select, input[type] {
   color: #4a4a4a;
   padding: 6px 10px;
   border-radius: 0.25rem;
-  /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: white;
-  box-shadow: none;
-  box-sizing: border-box; }
-  textarea:focus, select:focus, input[type]:focus {
-    border: 1px solid #2c8898;}
+  box-sizing: border-box;
+  border: 1px solid #4a4a4a;}
 
 input[type="checkbox"]:focus {
   outline: 1px dotted #2c8898; }
 
 label, legend, fieldset {
   display: block;
-  margin-bottom: .5rem;
+  /*margin-bottom: .5rem;*/
   font-weight: 600; }
 
 /* Custom CSS
@@ -237,13 +162,13 @@ label, legend, fieldset {
   font-weight: 300;
 }
 
-.flag:active, .flag:hover { color: #eb4d4b; }
+.flag:active, .flag:hover { color: #ff7979; }
 
 .heading-anchor { text-decoration: none; margin: 0 0.5rem 0 0;}
 
 :target,
 ul.logs li:target {
-  background-color: #f9ca24;
+  background-color: #f6e58d;
 }
 
 p a {
@@ -329,8 +254,6 @@ ul.logs li p:last-of-type {
 ul.logs li a {
   color: black;
 }
-
-.control-label {margin-top: 0.5rem;}
 
 .control-label + p.text-muted {
   color: #7f8c8d;

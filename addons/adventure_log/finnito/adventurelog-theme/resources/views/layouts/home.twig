@@ -39,9 +39,11 @@
         {% else %}
             <ul class="logs">
             {% for log in logs %}
-                <li id="log-{{ log.id }}">
-                    <p class="flex">
-                        <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
+                <li>
+                    <p class="flex nowrap">
+                        <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
+                            <span class="strong">{{ log.log_date.format('D d F, Y') }}<br>{{ log.related_hut.name }} <small>{{ log.related_hut.place }}</small></span>
+                        </a>
                         <span>{{ log.name }}</span>
                     </p>
                     <p class="flex">

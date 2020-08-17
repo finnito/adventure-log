@@ -10,18 +10,12 @@ My ethos for web development is _keep it simple, keep it fast_. If you think the
 
 - [ ] Post logs to Twitter
 - [ ] Post logs to Facebook page
-- [ ] Button to flag a log as inappropriate
-- [ ] Page describing privacy (tracking etc.)
 
 ## Contributing
 
 If you have a feature suggestion, bug report or just want to start a discussion about the goals of the application, please [open an issue](https://github.com/finnito/adventure-log/issues/new)!
 
 I'd love to hear from you, honestly!
-
--- Finn
-
-🏔🏔
 
 ## Releases
 

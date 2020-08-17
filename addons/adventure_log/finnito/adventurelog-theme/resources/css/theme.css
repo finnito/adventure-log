@@ -24,17 +24,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto; }
+  font-weight: 700;}
 
 h1 {
   font-size: 2.35em; }
@@ -88,12 +78,11 @@ input, textarea {width: 100%;}
 textarea {
   width: 100%; }
 
-form:not([role="search"]) {
+/*form:not([role="search"]) {
   padding: 0.5rem;
   background-color: #ecf0f1;
   border-radius: 0.25rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.16), 0 0 10px rgba(0,0,0,0.23);
-}
+}*/
 
 form[role="search"] .input-group {
   display: flex;
@@ -154,6 +143,8 @@ label, legend, fieldset {
  * ================
  */
 
+.field-group:not(:first-child) {margin-top: 0.5rem;}
+
 .flag {
   color: darkgrey;
   font-size: 0.8rem;
@@ -193,7 +184,6 @@ input.valid { border: 1px solid #6ab04c;}
 input.invalid { border: 1px solid #ff7979;}
 
 form:not([role="search"]) button {
-  margin: 1rem auto 0 auto;
   width: 100%;
   padding: 0.5rem;
   background-color: #6ab04c;
@@ -243,7 +233,7 @@ ul.logs li {
   margin: 1rem 0;
 }
 
-ul.logs li p.flex span:first-of-type {
+ul.logs li p.flex span.strong {
   font-style: normal;
   font-weight: 600;
 }

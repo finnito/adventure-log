@@ -52,7 +52,7 @@
             {% for log in logs %}
                 <li id="log-{{ log.id }}">
                     <p class="flex">
-                        <span><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
+                        <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
                         <span>{{ log.name }}</span>
                     </p>
                     <p class="flex">

@@ -189,6 +189,8 @@ p a {
 .alert.warning { background-color: #ffbe76; }
 .alert.danger { background-color: #ff7979; }
 
+input.valid { border: 1px solid #6ab04c;}
+input.invalid { border: 1px solid #ff7979;}
 
 form:not([role="search"]) button {
   margin: 1rem auto 0 auto;

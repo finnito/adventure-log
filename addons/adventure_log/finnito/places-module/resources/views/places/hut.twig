@@ -74,7 +74,20 @@
             + ("0" + (date.getMonth() + 1)).slice(-2)
             + "-"
             + ("0" + date.getDate()).slice(-2);
-        document.querySelector("input[name='log_date']").value = dateString;
+        document.querySelector("input[name='log_date']").value = dateString.trim();
+
+        document.querySelector("input[name='log_date']").classList.add("valid");
+
+        document.querySelector("input[name='log_date']").addEventListener("input", function() {
+            const regex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/gm;
+            if (event.target.value.match(regex)) {
+                event.target.classList.add("valid");
+                event.target.classList.remove("invalid");
+            } else {
+                event.target.classList.add("invalid");
+                event.target.classList.remove("valid");
+            }
+        });
     })(window, document);
     </script>
 

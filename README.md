@@ -19,7 +19,7 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
-### 1.2 - 2020/08/17
+### 2020/08/17
 
 Tonight's little release brings some minor improvements.
 
@@ -31,7 +31,7 @@ Tonight's little release brings some minor improvements.
 - Validates the `log_date` input with quick and dirty regex in lieu of a datepicker JS library [#5](https://github.com/finnito/adventure-log/issues/5)
 - Adds extra resources to the Safety page.
 
-### 1.1 - 2020/08/14
+### 2020/08/14
 
 Tonight's release brings together a series of improvements that I have brainstormed and worked on over the last week.
 
@@ -57,7 +57,7 @@ With that, I think it is ready for a more public release!
 
 ---
 
-### 1.0 - 2020/08/08
+### 2020/08/08
 
 This project was thought up during a rainy tramp to Camp Creek Hut and I spent the rest of the road trip pondering on it.
 

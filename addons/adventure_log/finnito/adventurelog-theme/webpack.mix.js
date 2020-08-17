@@ -11,12 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-//mix
-//    .js('node_modules/bootstrap/dist/js/bootstrap.min.js', 'resources/js/vendor')
-//    .sass('resources/scss/theme/theme.scss', 'resources/css')
-//    .options({
-//        processCssUrls: false
-//    });
+mix
+    .js('node_modules/vue/dist/vue.min.js', 'resources/js/vendor')
+    .js('node_modules/bootstrap/dist/js/bootstrap.min.js', 'resources/js/vendor')
+    .sass('resources/scss/theme/bootstrap.scss', 'resources/css')
+    .sass('resources/scss/theme/theme.scss', 'resources/css')
+    .options({
+        processCssUrls: false
+    });
 
 // Full API
 // mix.js(src, output);

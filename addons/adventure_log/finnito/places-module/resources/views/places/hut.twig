@@ -38,14 +38,15 @@
             <a href="#make-a-log" class="heading-anchor"><sup>🔗</sup></a>
         </h3>
 
-        {% set form = form('LogFormBuilder').get() %}
-        {{ form.open|raw }}
-        {% for field in form.fields %}
-            {{ field|raw }}
-        {% endfor %}
-        <input name="related_hut" type="hidden" value="{{ hut.id }}"/>
+    {% set form = form('LogFormBuilder').get() %}
+    {{ form.open|raw }}
+        {{ form.fields.log_date|raw }}
+        {{ form.fields.log.setAttributes({'autofocus': "true"})|raw }}
+        {{ form.fields.name|raw }}
+        {{ form.fields.honeypot|raw }}
+        <input name="related_hut" type="text" class="winnie-the-pooh" value="{{ hut.id }}"/>
         {{ form.actions|raw }}
-        {{ form.close|raw }}
+    {{ form.close|raw }}
 
         <h3 id="previous-logs">
             Previous Logs

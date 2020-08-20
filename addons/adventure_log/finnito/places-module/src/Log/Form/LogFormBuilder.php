@@ -33,6 +33,7 @@ class LogFormBuilder extends FormBuilder
      * @var array|string
      */
     protected $skips = [
+        "related_hut",
         "is_flagged",
         "is_spam",
         "is_reviewed",

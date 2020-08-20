@@ -19,6 +19,26 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.3 (2020/08/21)
+
+ - Stops abusing the SemVer scheme ([commit](https://github.com/finnito/adventure-log/commit/680f283f4d5811b6cb061f83ed93a6a981e0833e))
+ - Re-adds form background color ([commit](https://github.com/finnito/adventure-log/commit/fca980ae5bd698c830856bc52c38ed05f7ef568b))
+ - Remove usused assets ([commit](https://github.com/finnito/adventure-log/commit/37fb153c3b70ab7de61bdd9bc6af139898cdebc6))
+ - Clean up ignored files ([commit](https://github.com/finnito/adventure-log/commit/0571a31851d25d9f7f9e5683a086e2b47ed41bb7))
+ - Stops input elements zooming on mobile ([commit](https://github.com/finnito/adventure-log/commit/b04d56e8699bff95f4c7c708aea5a53edbef9f69))
+ - Fix the linking and info of logs on the home page ([commit](https://github.com/finnito/adventure-log/commit/5ca67717e0a3e5fe8979269edcf47fdb4250dd13))
+ - Removes unused code ([commit](https://github.com/finnito/adventure-log/commit/2acb1f2a2e3076d32653c0c85d8d20edd184a338))
+ - Improves the text encoding in the RSS feed [#38](https://github.com/finnito/adventure-log/issues/38)([commit](https://github.com/finnito/adventure-log/commit/7bcf8d855c670689304a1a745685f840e5384320))
+ - Adds the master RSS feed to the <head> element [#39](https://github.com/finnito/adventure-log/issues/39) ([commit](https://github.com/finnito/adventure-log/commit/430c18ff95ed5ca8ef56484ca2fd47f86f2da2b0))
+ - Only deploy to the server on tagged commit ([commit](https://github.com/finnito/adventure-log/commit/8c44f71652f49e1fdd8b3e2dff22b39553261257))
+ - [Fix] Removes the "related_hut" field; adds autofocus ([commit](https://github.com/finnito/adventure-log/commit/987bc4885d31987997642c49f4bb19c8c9e5642f))
+ - [Fix] Adds autofocus to the title field [#34](https://github.com/finnito/adventure-log/issues/34) ([commit](https://github.com/finnito/adventure-log/commit/bdbb62fd6fdc8d60a4b3cc7e23b77dfc168a820b))
+ - [Chore]: Simplifies the theme templating ([commit](https://github.com/finnito/adventure-log/commit/bd7ac6482cfd4c261e31bf0a98898acedafae637))
+ - [Chore]: Adds relationships between logs and places ([commit](https://github.com/finnito/adventure-log/commit/78e846aaf97c76208db934ba672785f9103e7f93))
+ - [Feat]: Adds proper ordering of search results [#40](https://github.com/finnito/adventure-log/issues/40) ([commit](https://github.com/finnito/adventure-log/commit/702602a2e95453059672376a7b75d1dfd7bb41e4))
+ - [Feat]: Adds all DOC campsites [#36](https://github.com/finnito/adventure-log/issues/36)([commit](https://github.com/finnito/adventure-log/commit/54a662f825feccf0b0fd5e66108a400d49c12b48))
+ - Whitespace ([commit](https://github.com/finnito/adventure-log/commit/e23143bbbd2c6f85b92a2a502222c4af2d986ae7))
+
 ### 2020/08/17
 
 Tonight's little release brings some minor improvements.

@@ -48,8 +48,6 @@ class LogFormHandler
             }
         } else {
             $bag->info("There was an error with Akismet");
-        }
-
-        
+        }   
     }
 }

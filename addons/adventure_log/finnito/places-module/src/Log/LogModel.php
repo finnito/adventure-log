@@ -7,9 +7,9 @@ use Finnito\PlacesModule\Place\PlaceModel;
 class LogModel extends PlacesLogsEntryModel implements LogInterface
 {
 
-    public function relatedHut()
+    public function place()
     {
-        return $this->hasOne(PlaceModel::class, "id", "related_hut_id");
+        return $this->belongsTo(PlaceModel::class, "related_hut_id", "id");
     }
 
 }

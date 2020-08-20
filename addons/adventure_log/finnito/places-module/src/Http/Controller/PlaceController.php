@@ -68,7 +68,6 @@ class PlaceController extends PublicController
     public function hut(
         Request $request,
         PlaceRepositoryInterface $places,
-        LogRepositoryInterface $logs,
         $place_slug,
         $name_slug
     ) {
@@ -80,20 +79,10 @@ class PlaceController extends PublicController
             ])
             ->first();
 
-        $related_logs = $logs
-            ->newQuery()
-            ->where([
-                ["related_hut_id", "=", $hut->id],
-                ["is_flagged", 0],
-                ["is_spam", 0],
-            ])
-            ->orderBy("log_date", "DESC")
-            ->get();
-
-        if ($related_logs->count() == 1) {
-            $txt = $hut->getAttribute("name") . " has " . $related_logs->count() . " log.";
+        if ($hut->logs()->count() == 1) {
+            $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " log.";
         } else {
-            $txt = $hut->getAttribute("name") . " has " . $related_logs->count() . " logs.";
+            $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " logs.";
         }
 
         $this->template->set("meta_title", $hut->getAttribute("name"));
@@ -102,8 +91,7 @@ class PlaceController extends PublicController
         return $this->view->make(
             'finnito.module.places::places/hut',
             [
-                'hut' => $hut,
-                "logs" => $related_logs
+                'hut' => $hut
             ]
         );
     }

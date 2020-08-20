@@ -1,28 +1,3 @@
-{% htmlcompress %}
-<!doctype html>
-
-<!--[if lt IE 7]>
-<html class="nojs ms lt_ie7" lang="en"><![endif]-->
-<!--[if IE 7]>
-<html class="nojs ms ie7" lang="en"><![endif]-->
-<!--[if IE 8]>
-<html class="nojs ms ie8" lang="en"><![endif]-->
-<!--[if gt IE 8]>
-<html class="nojs ms" lang="en"><![endif]-->
-
-<html lang="{{ config('app.locale') }}">
-
-    <head>
-        {% include "theme::partials/metadata" %}
-    </head>
-
-    <body>
-
-    {% include "theme::partials/header" %}
-
-    <main id="main">
-
-        {% include "theme::partials/messages" %}
 
         <h2>{{ resultCount }} result{% if (resultCount > 1) or (resultCount == 0) %}s{% endif %} for <em>"{{ query }}"</em></h2>
         {% if resultCount > 0 %}
@@ -44,6 +19,8 @@
             </li>
         {% endfor %}
         </ul>
+{% extends "finnito.theme.adventurelog::layouts.default" %}
+{% block content %}
         {% endif %}
     </main>
 
@@ -52,10 +29,4 @@
         document.querySelector("input[name='q']").value = "{{ query }}";
     })(window, document);
     </script>
-
-    {% include "theme::partials/footer" %}
-    {% include "theme::partials/assets" %}
-
-    </body>
-</html>
-{% endhtmlcompress %}
+{% endblock %}

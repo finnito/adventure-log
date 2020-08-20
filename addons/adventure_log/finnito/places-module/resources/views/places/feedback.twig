@@ -1,37 +1,8 @@
-{% htmlcompress %}
-<!doctype html>
-
-<!--[if lt IE 7]>
-<html class="nojs ms lt_ie7" lang="en"><![endif]-->
-<!--[if IE 7]>
-<html class="nojs ms ie7" lang="en"><![endif]-->
-<!--[if IE 8]>
-<html class="nojs ms ie8" lang="en"><![endif]-->
-<!--[if gt IE 8]>
-<html class="nojs ms" lang="en"><![endif]-->
-
-<html lang="{{ config('app.locale') }}">
-
-    <head>
-        {% include "theme::partials/metadata" %}
-    </head>
-
-    <body>
-
-    {% include "theme::partials/header" %}
-
-    <main id="main">
-
-        {% include "theme::partials/messages" %}
-        <h2>Feedback</h2>
-        <p>This feedback is logged on the <a href="https://github.com/finnito/adventure-log/issues">GitHub Issues page</a>.</p>
-        
-        {{ 
-            form('FeedbackFormBuilder')
-        }}
-
-        
-    </main>
+{% extends "finnito.theme.adventurelog::layouts.default" %}
+{% block content %}
+    <h2>Feedback</h2>
+    <p>This feedback is logged on the <a href="https://github.com/finnito/adventure-log/issues">GitHub Issues page</a>.</p>
+    
     {% set form = form('FeedbackFormBuilder').get() %}
     {{ form.open|raw }}
         {{ form.fields.title.setAttributes({'autofocus': "true"})|raw }}
@@ -51,10 +22,4 @@
         document.querySelector("input[name='log_date']").value = dateString;
     })(window, document);
     </script>
-
-    {% include "theme::partials/footer" %}
-    {% include "theme::partials/assets" %}
-
-    </body>
-</html>
-{% endhtmlcompress %}
+{% endblock %}

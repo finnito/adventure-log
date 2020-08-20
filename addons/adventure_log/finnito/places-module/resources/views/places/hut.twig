@@ -1,42 +1,19 @@
-{% htmlcompress %}
-<!doctype html>
+{% extends "finnito.theme.adventurelog::layouts.default" %}
+{% block content %}
+    <div class="flex">
+        <h2>{{ hut.name }}</h2>
+        <span><small><a class="flag" href="/places/{{ hut.place_slug }}/">{{ hut.place }}</a></small></span>
+    </div>
+    <ul>
+        <li><a href="{{ hut.static_link }}">View on DOC</a></li>
+        <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
+        <li><a href="feed.xml" class="button good">Subscribe to Hut Logs (RSS)</a></li>
+    </ul>
 
-<!--[if lt IE 7]>
-<html class="nojs ms lt_ie7" lang="en"><![endif]-->
-<!--[if IE 7]>
-<html class="nojs ms ie7" lang="en"><![endif]-->
-<!--[if IE 8]>
-<html class="nojs ms ie8" lang="en"><![endif]-->
-<!--[if gt IE 8]>
-<html class="nojs ms" lang="en"><![endif]-->
-
-<html lang="{{ config('app.locale') }}">
-
-    <head>
-        {% include "theme::partials/metadata" %}
-    </head>
-
-    <body>
-
-    {% include "theme::partials/header" %}
-
-    <main id="main">
-
-        {% include "theme::partials/messages" %}
-        <div class="flex">
-            <h2>{{ hut.name }}</h2>
-            <span><small><a class="flag" href="/places/{{ hut.place_slug }}/">{{ hut.place }}</a></small></span>
-        </div>
-        <ul>
-            <li><a href="{{ hut.static_link }}">View on DOC</a></li>
-            <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
-            <li><a href="feed.xml" class="button good">Subscribe to Hut Logs (RSS)</a></li>
-        </ul>
-
-        <h3 id="make-a-log">
-            Make a Log
-            <a href="#make-a-log" class="heading-anchor"><sup>🔗</sup></a>
-        </h3>
+    <h3 id="make-a-log">
+        Make a Log
+        <a href="#make-a-log" class="heading-anchor"><sup>🔗</sup></a>
+    </h3>
 
     {% set form = form('LogFormBuilder').get() %}
     {{ form.open|raw }}
@@ -48,33 +25,31 @@
         {{ form.actions|raw }}
     {{ form.close|raw }}
 
-        <h3 id="previous-logs">
-            Previous Logs
-            <a href="#previous-logs" class="heading-anchor"><sup>🔗</sup></a>
-        </h3>
-        {% if logs|length == 0 %}
-            <p>No logs yet. Be the first?</p>
-        {% else %}
-            <ul class="logs">
-            {% for log in logs %}
-                <li id="log-{{ log.id }}">
-                    <p class="flex">
-                        <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
-                        <span>{{ log.name }}</span>
-                    </p>
-                    <p class="flex">
-                        <span>{{ log.log }}</span>
-                        <span><a class="flag" href="/flag/log/{{ log.id }}">🔸 Flag as Spam</a></span>
-                    </p>
-                </li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    </main>
+    <h3 id="previous-logs">
+        Previous Logs
+        <a href="#previous-logs" class="heading-anchor"><sup>🔗</sup></a>
+    </h3>
+    {% if hut.logs|length == 0 %}
+        <p>No logs yet. Be the first?</p>
+    {% else %}
+        <ul class="logs">
+        {% for log in hut.logs %}
+            <li id="log-{{ log.id }}">
+                <p class="flex">
+                    <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
+                    <span>{{ log.name }}</span>
+                </p>
+                <p class="flex">
+                    <span>{{ log.log }}</span>
+                    <span><a class="flag" href="/flag/log/{{ log.id }}">🔸 Flag as Spam</a></span>
+                </p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
     <script>
-    (function (window, document) {
-        document.querySelector("select[name='related_hut']").value = {{ hut.id }};
+    window.addEventListener("DOMContentLoaded", function() {
         var date = new Date();
         dateString = date.getFullYear()
             + "-"
@@ -82,9 +57,7 @@
             + "-"
             + ("0" + date.getDate()).slice(-2);
         document.querySelector("input[name='log_date']").value = dateString.trim();
-
         document.querySelector("input[name='log_date']").classList.add("valid");
-
         document.querySelector("input[name='log_date']").addEventListener("input", function() {
             const regex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/gm;
             if (event.target.value.match(regex)) {
@@ -95,12 +68,6 @@
                 event.target.classList.remove("valid");
             }
         });
-    })(window, document);
+    });
     </script>
-
-    {% include "theme::partials/footer" %}
-    {% include "theme::partials/assets" %}
-
-    </body>
-</html>
-{% endhtmlcompress %}
+{% endblock %}

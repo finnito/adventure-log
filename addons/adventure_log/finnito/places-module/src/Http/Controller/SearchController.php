@@ -20,9 +20,6 @@ class SearchController extends PublicController
             ->newQuery()
             ->where("name", "LIKE", "%".$request->q."%")
             ->get();
-        foreach ($hutResults as $entry) {
-            $entry["type"] = "hut";
-        }
 
         $placeResults = $model
             ->newQuery()
@@ -30,14 +27,14 @@ class SearchController extends PublicController
             ->groupBy("place")
             ->get();
         foreach ($placeResults as $entry) {
-            $entry["type"] = "place";
+            $entry["place_type"] = "place";
         }
 
         $results = $hutResults->concat($placeResults)->sortBy(function ($entry, $key) {
-            if ($entry["type"] == "hut") {
-                return $entry["name"];
-            } else if ($entry["type"] == "place") {
+            if ($entry["place_type"] == "place") {
                 return $entry["place"];
+            } else {
+                return $entry["name"];
             }
         });
 

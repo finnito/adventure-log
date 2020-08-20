@@ -4,7 +4,7 @@
     <p><a href="feed.xml" class="button good">Subscribe to Logs in This Area (RSS)</a></p>
     <ul>
     {% for hut in huts %}
-        <li><a href="/places/{{ hut.place_slug }}/{{ hut.name_slug }}">{{ hut.name }}</a></li>
+        <li>{% if hut.place_type == "hut" %}🏡{% else %}🏕{% endif %} <a href="/places/{{ hut.place_slug }}/{{ hut.name_slug }}">{{ hut.name }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

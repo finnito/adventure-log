@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>{{ title }} | {{ config('app.name') }}</title>
         <description>This feed compiles all logs for all huts in {{ title }}.</description>
@@ -8,8 +8,10 @@
         <item>
             <title>{{ entry.related_hut.name }}</title>
             {% if not (entry.name == "") %}<author>{{ entry.name }}</author>{% endif %}
+            <content:encoded><![CDATA[<p>
                     <strong>Log Date:</strong> {{ entry.log_date.date() }}{% if not (entry.name == "") %} by {{ entry.name }}{% endif %}<br/>
                     {{ nl2br(entry.log)|raw }}
+                </p>]]></content:encoded>
             <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
             <link>{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</link>
             <guid isPermaLink="true">{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</guid>

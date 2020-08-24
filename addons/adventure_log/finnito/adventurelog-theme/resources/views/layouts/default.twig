@@ -44,7 +44,7 @@
         <meta property="og:url" content="{{ app.request.uri }}">
         <meta property="twitter:url" content="{{ app.request.uri }}" />
 
-
+        {% block meta %}{% endblock %}
         {{ template.includes.render('meta')|raw }}
 
         <title>

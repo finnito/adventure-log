@@ -8,3 +8,7 @@
     {% endfor %}
     </ul>
 {% endblock %}
+
+{% block meta %}
+    <link rel="alternate" type="application/rss+xml" title="{{ place }} | AdventureLog NZ" href="feed.xml" />
+{% endblock %}

@@ -8,8 +8,9 @@
             {% if entry.object.table == "places_logs" %}
             <item>
                 <title>{{ entry.related_hut.name }}</title>
+                {% if not (entry.name == "") %}<author>{{ entry.name }}</author>{% endif %}
                 <content:encoded><![CDATA[<p>
-                    <strong>Log Date:</strong> {{ entry.log_date.date() }}<br/>
+                    <strong>Log Date:</strong> {{ entry.log_date.date() }}{% if not (entry.name == "") %} by {{ entry.name }}{% endif %}<br/>
                     {{ nl2br(entry.log)|raw }}
                 </p>]]></content:encoded>
                 <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
@@ -19,9 +20,7 @@
             {% else %}
             <item>
                 <title>{{ entry.title }}</title>
-                <description><![CDATA[
-                    {{ entry.summary.render()|raw }}
-                ]]></description>
+                <author>Finn Le Sueur</author>
                 <content:encoded><![CDATA[
                     {{ entry.markdown_content.render()|raw }}
                 ]]></content:encoded>

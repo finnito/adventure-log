@@ -7,7 +7,9 @@
         {% for entry in entries %}
         <item>
             <title>{{ entry.related_hut.name }}</title>
-            <description>Log Date: {{ entry.log_date.date() }}<br/>{{ nl2br(entry.log) }}</description>
+            {% if not (entry.name == "") %}<author>{{ entry.name }}</author>{% endif %}
+                    <strong>Log Date:</strong> {{ entry.log_date.date() }}{% if not (entry.name == "") %} by {{ entry.name }}{% endif %}<br/>
+                    {{ nl2br(entry.log)|raw }}
             <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
             <link>{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</link>
             <guid isPermaLink="true">{{ url('/') }}/places/{{ entry.related_hut.place_slug }}/{{ entry.related_hut.name_slug }}/#log-{{ entry.id }}</guid>

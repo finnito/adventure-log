@@ -26,7 +26,7 @@
                     {{ entry.markdown_content.render()|raw }}
                 ]]></content:encoded>
                 <pubDate>{{ entry.created_at|date("D, d M Y H:i:s O") }}</pubDate>
-                <link>{{ url('/') }}/posts/{{ entry.slug }}</link>
+                <link>{{ url('/') }}/news/{{ entry.slug }}</link>
                 <guid isPermaLink="true">{{ url('/') }}/posts/{{ entry.slug }}</guid>
             </item>
             {% endif %}

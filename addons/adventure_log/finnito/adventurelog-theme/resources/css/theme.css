@@ -47,6 +47,8 @@ h6 {
 p {
   margin-top: 0px; }
 
+li h4 {margin-bottom: 0;}
+
 small, sub, sup {
   font-size: 75%; }
 

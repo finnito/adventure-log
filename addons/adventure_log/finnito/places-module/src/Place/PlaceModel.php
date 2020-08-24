@@ -13,4 +13,9 @@ class PlaceModel extends PlacesPlacesEntryModel implements PlaceInterface
         ->orderBy("log_date", "DESC")
         ->get();
     }
+
+    public function region()
+    {
+        return $this->region;
+    }
 }

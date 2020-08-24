@@ -207,9 +207,8 @@
                 </h3>
                 {% for region in regions %}
                     <li><h4>{{ region.region() }}</h4></li>
-                    {% set r = region.region() %}
                     {% set places = entries('places', 'places')
-                        .where("region", "=", r )
+                        .where("region", "=", region.region() )
                         .groupBy('place_slug')
                         .orderBy("place")
                         .get(["place_slug", "place"]) %}             

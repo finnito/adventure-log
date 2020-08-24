@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b9b88713da1743a0996028b3cdca98b1)](https://app.codacy.com/manual/finn_3/adventure-log?utm_source=github.com&utm_medium=referral&utm_content=finnito/adventure-log&utm_campaign=Badge_Grade_Dashboard)
 ![](https://img.shields.io/uptimerobot/ratio/m785755282-f5ee4e9d0e6a7e2d9e757d1d?label=Uptime) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Adventure Log

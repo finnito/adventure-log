@@ -19,6 +19,16 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.4 (2020/08/25)
+
+ - Adds some permissions fixing commands ([commit](https://github.com/finnito/adventure-log/commit/1e7ec91ecc89eeb8320c2cdf76967234a2c4e481))
+ - [Feat]: Groups places index by region ([issue #41](https://github.com/finnito/adventure-log/issues/41), [commit](https://github.com/finnito/adventure-log/commit/34a6baac2f9f6eeb2e66b599fc1210e762e81cfa))
+ - [Fix]: Changes posts slug to /news/ ([issue #44](https://github.com/finnito/adventure-log/issues/44), [commit](https://github.com/finnito/adventure-log/commit/a8f161ddb36bed80d0645192278021759d9b1523))
+ - [Fix]: Simplifies grouping queries ([commit](https://github.com/finnito/adventure-log/commit/c11d8f4cf27770c9a60293d9c54de25f692ef667))
+ - [Feat]: Adds individual log feed to head ([commit](https://github.com/finnito/adventure-log/commit/49bb42c11787077e235b183b3fe6b941e087230f))
+ - [Feat]: Adds author information to RSS feeds ([issue #42](https://github.com/finnito/adventure-log/issues/42), [commit](https://github.com/finnito/adventure-log/commit/f209bb08b446754499e7173cdc44c12e845dfe43))
+ - [Fix]: Properly encodes the RSS content ([commit](https://github.com/finnito/adventure-log/commit/6cf86972d46f7fd59b4bcc317cbd2affafaa7b24))
+
 ### 2020.3 (2020/08/21)
 
  - Stops abusing the SemVer scheme ([commit](https://github.com/finnito/adventure-log/commit/680f283f4d5811b6cb061f83ed93a6a981e0833e))

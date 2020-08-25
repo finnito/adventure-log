@@ -38,7 +38,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.00em;
+  font-size: 2em;
 }
 
 h3 {
@@ -58,7 +58,7 @@ h6 {
 }
 
 p {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 li h4 {
@@ -323,7 +323,7 @@ ul.logs li a {
   text-decoration: none;
 }
 
-.control-label+p.text-muted {
+.control-label + p.text-muted {
   color: #7f8c8d;
   font-size: 0.8rem;
   margin: -0.5rem 0 0 0;
@@ -411,28 +411,28 @@ input[type=checkbox].toggle,
   cursor: pointer;
 }
 
-.toggle~.nav-wrapper {
+.toggle ~ .nav-wrapper {
   transform: translateX(150%);
 }
 
-.toggle:checked~.nav-wrapper {
+.toggle:checked ~ .nav-wrapper {
   transform: translateX(0);
 }
 
-.toggle:checked~.hamburger span {
+.toggle:checked ~ .hamburger span {
   transition: all 300ms;
 }
 
-.toggle:checked~.hamburger span:nth-child(1) {
+.toggle:checked ~ .hamburger span:nth-child(1) {
   transform: translateY(5px) rotateZ(45deg);
 }
 
-.toggle:checked~.hamburger span:nth-child(2) {
+.toggle:checked ~ .hamburger span:nth-child(2) {
   transform: translateX(50%);
   opacity: 0;
 }
 
-.toggle:checked~.hamburger span:nth-child(3) {
+.toggle:checked ~ .hamburger span:nth-child(3) {
   transform: translateY(-3px) rotateZ(-45deg);
 }
 
@@ -476,7 +476,6 @@ footer hr {
   margin-bottom: 1.5rem;
 }
 
-
 @media (min-width: 375px) {
   .hamburger p {
     display: block;
@@ -484,7 +483,7 @@ footer hr {
 }
 
 @media (min-width: 550px) {
-  .toggle~.nav-wrapper {
+  .toggle ~ .nav-wrapper {
     transform: none;
   }
 

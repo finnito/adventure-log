@@ -34,20 +34,23 @@ class LogFormHandler
             "blog" => env("AKISMET_BLOGURL")
 
         ]);
-        if($akismet->validateKey()) {
-            if($akismet->isSpam()) {
-                $bag->info("Your log was marked as SPAM. If this is an error, please email Finn.");
-            } else {
-                $bag->success("Thank you for your log!");
-                if (!$builder->canSave()) {
-                    return;
-                }
-
-                $builder->saveForm();
-                $cache->purge($request->headers->get("referer"));
-            }
-        } else {
+        if (!$akismet->validateKey()) {
             $bag->info("There was an error with Akismet");
-        }   
+            return;
+        }
+
+        if ($akismet->isSpam()) {
+            $bag->info("Your log was marked as SPAM. If this is an error, please email Finn.");
+            return;
+        }
+
+        if (!$builder->canSave()) {
+            $bag->info("There was an error saving your log. Please email Finn!");
+            return;
+        }
+
+        $bag->success("Thank you for your log!");
+        $cache->purge($request->headers->get("referer"));
+        $builder->saveForm();
     }
 }

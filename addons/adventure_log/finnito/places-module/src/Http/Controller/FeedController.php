@@ -64,7 +64,6 @@ class FeedController extends PublicController
     }
 
     public function hut(
-        Request $request,
         PlaceRepositoryInterface $places,
         LogRepositoryInterface $logs,
         $place_slug,

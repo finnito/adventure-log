@@ -16,7 +16,7 @@ class FeedController extends PublicController
      * @param PlaceModel $model
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(Request $request, LogRepositoryInterface $logs, PostRepositoryInterface $posts)
+    public function index(LogRepositoryInterface $logs, PostRepositoryInterface $posts)
     {
         $entries = $logs->all()
             ->concat($posts->all())
@@ -34,7 +34,6 @@ class FeedController extends PublicController
     }
 
     public function place(
-        Request $request,
         PlaceRepositoryInterface $places,
         LogRepositoryInterface $logs,
         $place_slug
@@ -77,11 +76,6 @@ class FeedController extends PublicController
                 ["place_slug", $place_slug],
                 ["name_slug", $name_slug]
             ])
-            ->first();
-        $place = $places
-            ->newQuery()
-            ->where("place_slug", $place_slug)
-            ->groupBy("place_slug")
             ->first();
         $entries = $logs
             ->newQuery()

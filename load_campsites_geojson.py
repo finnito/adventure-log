@@ -1,5 +1,5 @@
 #!/Users/finnlesueur/.pyenv/shims/python3
-""" Author: Finn LeSueur
+"""Author: Finn LeSueur
 
 This script parses the geojson file
 containing all huts in New Zealand.
@@ -18,7 +18,7 @@ import subprocess
 
 def main():
     """The brains."""
-    # Load the .env file
+
     env_path = Path('.') / '.env'
     load_dotenv(dotenv_path=env_path)
 
@@ -112,10 +112,7 @@ def main():
         subprocess.call(['php', 'artisan', 'streams:index'])
 
 def slugify(string):
-    """Slugifies a string.
-
-    Quick and dirty URL safe slug.
-    """
+    """Slugifies a string."""
     if string is None:
         string = ""
     non_url_safe = ['"', '#', '$', '%', '&', '+',

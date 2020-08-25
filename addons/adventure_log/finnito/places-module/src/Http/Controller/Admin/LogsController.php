@@ -39,14 +39,14 @@ class LogsController extends AdminController
      */
     public function edit(LogFormBuilder $form, $log_id)
     {
-        return $form->render($id);
+        return $form->render($log_id);
     }
 
     public function review(LogRepositoryInterface $logs, $log_id)
     {
         $logs
             ->newQuery()
-            ->where('id', $id)
+            ->where('id', $log_id)
             ->update(array("is_reviewed" => 1));
         return redirect()->back();
     }
@@ -55,7 +55,7 @@ class LogsController extends AdminController
     {
         $logs
             ->newQuery()
-            ->where('id', $id)
+            ->where('id', $log_id)
             ->update(array("is_flagged" => 0));
         return redirect()->back();
     }

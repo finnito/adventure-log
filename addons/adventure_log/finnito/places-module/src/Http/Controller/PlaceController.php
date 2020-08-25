@@ -101,7 +101,7 @@ class PlaceController extends PublicController
     {
         $logs
             ->newQuery()
-            ->where('id', $id)
+            ->where('id', $log_id)
             ->update(array("is_flagged" => 1));
         return redirect()->back();
     }

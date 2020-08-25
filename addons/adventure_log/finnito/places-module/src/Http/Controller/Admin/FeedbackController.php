@@ -38,6 +38,6 @@ class FeedbackController extends AdminController
      */
     public function edit(FeedbackFormBuilder $form, $feedback_id)
     {
-        return $form->render($id);
+        return $form->render($feedback_id);
     }
 }

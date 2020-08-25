@@ -41,10 +41,9 @@ class PlaceController extends PublicController
             ->where("place_slug", "=", $place_slug)
             ->get();
 
+        $txt = "There are " . $huts->count() . " huts in " . $huts->first()->getAttribute("place") . ".";
         if ($huts->count() == 1) {
             $txt = "There is " . $huts->count() . " hut in " . $huts->first()->getAttribute("place") . ".";
-        } else {
-            $txt = "There are " . $huts->count() . " huts in " . $huts->first()->getAttribute("place") . ".";
         }
 
         $this->template->set("meta_title", $huts->first()->getAttribute("place"));
@@ -66,7 +65,6 @@ class PlaceController extends PublicController
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function hut(
-        Request $request,
         PlaceRepositoryInterface $places,
         $place_slug,
         $name_slug
@@ -79,10 +77,9 @@ class PlaceController extends PublicController
             ])
             ->first();
 
+        $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " logs.";
         if ($hut->logs()->count() == 1) {
             $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " log.";
-        } else {
-            $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " logs.";
         }
 
         $this->template->set("meta_title", $hut->getAttribute("name"));
@@ -97,7 +94,7 @@ class PlaceController extends PublicController
     }
 
 
-    public function flagLog(LogRepositoryInterface $logs, $id)
+    public function flagLog(LogRepositoryInterface $logs, $log_id)
     {
         $logs
             ->newQuery()
@@ -105,5 +102,4 @@ class PlaceController extends PublicController
             ->update(array("is_flagged" => 1));
         return redirect()->back();
     }
-
 }

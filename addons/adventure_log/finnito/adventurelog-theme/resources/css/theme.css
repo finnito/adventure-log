@@ -374,7 +374,7 @@ input[type=checkbox].toggle,
 
 .hamburger {
   z-index: 9999999;
-  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   padding: 0.5rem;
@@ -433,7 +433,7 @@ input[type=checkbox].toggle,
 }
 
 .toggle:checked~.hamburger span:nth-child(3) {
-  transform: translateY(-3px) rotateZ(-45deg)
+  transform: translateY(-3px) rotateZ(-45deg);
 }
 
 nav {
@@ -510,7 +510,6 @@ footer hr {
     position: relative;
     left: 0;
     transform: translateX(0);
-    /*height: auto;*/
     top: 0;
     width: auto;
     padding: 0;

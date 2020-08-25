@@ -1,5 +1,4 @@
 #!/Users/finnlesueur/.pyenv/shims/python3
-
 """ Author: Finn LeSueur
 
 This script parses the geojson file
@@ -18,8 +17,7 @@ import os
 
 
 def main():
-    """ The brains
-    """
+    """ The brains"""
     # Load the .env file
     env_path = Path('.') / '.env'
     load_dotenv(dotenv_path=env_path)
@@ -94,8 +92,9 @@ def main():
             connection.commit()
 
 def slugify(string):
-    """ Turns a string into a quick
-    and dirty URL safe slug.
+    """ Slugifies a string.
+    
+    Output: Quick and dirty URL safe slug.
     """
     if string is None:
         string = ""

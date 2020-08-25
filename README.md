@@ -8,11 +8,6 @@ Adventure Log aims to be a simple but useful tool to help trampers (New Zealand 
 
 My ethos for web development is _keep it simple, keep it fast_. If you think there is something I can improve, please [open an issue](https://github.com/finnito/adventure-log/issues/new) and let me know!
 
-### Into the Future
-
-- [ ] Post logs to Twitter
-- [ ] Post logs to Facebook page
-
 ## Contributing
 
 If you have a feature suggestion, bug report or just want to start a discussion about the goals of the application, please [open an issue](https://github.com/finnito/adventure-log/issues/new)!

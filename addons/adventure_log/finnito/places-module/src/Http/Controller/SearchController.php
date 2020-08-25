@@ -33,9 +33,8 @@ class SearchController extends PublicController
         $results = $hutResults->concat($placeResults)->sortBy(function ($entry) {
             if ($entry["place_type"] == "place") {
                 return $entry["place"];
-            } else {
-                return $entry["name"];
             }
+            return $entry["name"];
         });
 
         $this->template->set("meta_title", "Search");

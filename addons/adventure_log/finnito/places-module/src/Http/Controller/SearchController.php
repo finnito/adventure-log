@@ -30,7 +30,7 @@ class SearchController extends PublicController
             $entry["place_type"] = "place";
         }
 
-        $results = $hutResults->concat($placeResults)->sortBy(function ($entry, $key) {
+        $results = $hutResults->concat($placeResults)->sortBy(function ($entry) {
             if ($entry["place_type"] == "place") {
                 return $entry["place"];
             } else {

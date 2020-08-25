@@ -13,14 +13,12 @@ class FeedbackController extends PublicController
      * @param PlaceModel $model
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // $results = $model->search($request->q)->get();
         $this->template->set("meta_title", "Feedback");
         return $this->view->make(
             'finnito.module.places::places/feedback',
             []
         );
     }
-
 }

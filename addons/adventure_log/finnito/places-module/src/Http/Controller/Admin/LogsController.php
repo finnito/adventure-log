@@ -37,12 +37,12 @@ class LogsController extends AdminController
      * @param        $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(LogFormBuilder $form, $id)
+    public function edit(LogFormBuilder $form, $log_id)
     {
         return $form->render($id);
     }
 
-    public function review(LogRepositoryInterface $logs, $id)
+    public function review(LogRepositoryInterface $logs, $log_id)
     {
         $logs
             ->newQuery()
@@ -51,7 +51,7 @@ class LogsController extends AdminController
         return redirect()->back();
     }
 
-    public function unflag(LogRepositoryInterface $logs, $id)
+    public function unflag(LogRepositoryInterface $logs, $log_id)
     {
         $logs
             ->newQuery()

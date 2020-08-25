@@ -36,7 +36,7 @@ class FeedbackController extends AdminController
      * @param        $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(FeedbackFormBuilder $form, $id)
+    public function edit(FeedbackFormBuilder $form, $feedback_id)
     {
         return $form->render($id);
     }

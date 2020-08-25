@@ -36,8 +36,8 @@ class PlacesController extends AdminController
      * @param        $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(PlaceFormBuilder $form, $id)
+    public function edit(PlaceFormBuilder $form, $place_id)
     {
-        return $form->render($id);
+        return $form->render($place_id);
     }
 }

@@ -18,7 +18,6 @@ import subprocess
 
 def main():
     """The brains."""
-
     env_path = Path('.') / '.env'
     load_dotenv(dotenv_path=env_path)
 

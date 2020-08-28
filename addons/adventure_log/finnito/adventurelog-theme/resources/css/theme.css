@@ -9,6 +9,7 @@ html {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  border-top: 5px solid #497934;
 }
 
 body {

@@ -64,9 +64,12 @@
             if (event.target.value.match(regex)) {
                 event.target.classList.add("valid");
                 event.target.classList.remove("invalid");
+                document.querySelector("button.btn-success[type='submit']").removeAttribute("disabled", "true");
+
             } else {
                 event.target.classList.add("invalid");
                 event.target.classList.remove("valid");
+                document.querySelector("button.btn-success[type='submit']").setAttribute("disabled", "true");
             }
         });
     });

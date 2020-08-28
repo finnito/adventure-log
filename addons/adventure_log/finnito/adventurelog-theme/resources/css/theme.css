@@ -104,8 +104,9 @@ ul {
 blockquote {
   margin: 1rem 0;
   padding: 0.5rem;
-  border-left: 2px solid #6ab04c;
+  border-left: 4px solid #6ab04c;
   background-color: #f1f1f1;
+  border-radius: 0.25rem;
 }
 
 input,

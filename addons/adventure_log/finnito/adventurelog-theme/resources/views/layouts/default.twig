@@ -180,16 +180,23 @@
                     <ul class="logs">
                     {% for log in logs %}
                         <li>
-                            <p class="flex nowrap">
-                                <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
-                                    <span class="strong">{{ log.log_date.format('D d F, Y') }}<br>{{ log.related_hut.name }} <small>{{ log.related_hut.place }}</small></span>
-                                </a>
-                                <span>{{ log.name }}</span>
-                            </p>
-                            <p class="flex">
-                                <span>{{ log.log }}</span>
-                                <span><a class="flag" href="/flag/log/{{ log.id }}">🔸 Flag as Spam</a></span>
-                            </p>
+                            <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
+                                <div>
+                                    <span class="muted">
+                                        {{ log.log_date.format('D d F, Y') }}
+                                        {% if not (log.name == "") %} by {{ log.name }}{% endif %}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="strong">{{ log.related_hut.name }}</span>
+                                    <small class="muted"> > {{ log.related_hut.place }}</small>
+                                </div>
+                                
+                                <p>
+                                    <span>{{ log.log }}</span></br>
+                                    <span><a class="flag" href="/flag/log/{{ log.id }}">🔸 Flag as Spam</a></span>
+                                </p>
+                            </a>
                         </li>
                     {% endfor %}
                     </ul>
@@ -206,7 +213,7 @@
                     <a href="#places" class="heading-anchor"><sup>🔗</sup></a>
                 </h3>
                 {% for region in regions %}
-                    <li><h4>{{ region.region() }}</h4></li>
+                    <h4>{{ region.region() }}</h4>
                     {% set places = entries('places', 'places')
                         .where("region", "=", region.region() )
                         .groupBy('place_slug')

@@ -155,7 +155,8 @@ input[type="button"] {
   color: #f9f9f9;
   border-radius: 0.25rem;
   border: none;
-  cursor: pointer;
+  cursor: pointer;  
+  transition: all 150ms;
 }
 
 .button:hover,
@@ -164,6 +165,12 @@ input[type="button"] {
 button:focus:enabled,
 button:hover:enabled {
   color: #f9f9f9;
+  background-color: #6ab04c;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+form:not([role="search"]) button:disabled {
+  background-color: #bdc3c7;
 }
 
 textarea,
@@ -192,7 +199,8 @@ fieldset {
   margin-top: 0.5rem;
 }
 
-.flag {
+.flag,
+.muted {
   color: darkgrey;
   font-size: 0.8rem;
   text-decoration: none;
@@ -277,6 +285,10 @@ ul.menu a {
   font-weight: 500;
 }
 
+ul.logs a.heading-anchor {
+  display: inline;
+}
+
 ul.results {
   padding: 0;
   list-style: none;
@@ -306,21 +318,29 @@ ul.logs li {
   border-left: 4px solid #f39c12;
   padding: 0.5rem;
   margin: 1rem 0;
+  transition: box-shadow 150ms;
 }
 
-ul.logs li p.flex span.strong {
+ul.logs li:hover,
+ul.logs li:active {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+ul.logs li span.strong {
   font-style: normal;
   font-weight: 600;
 }
 
 ul.logs li p:last-of-type {
   margin-bottom: 0;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 ul.logs li a {
-  color: #497934;
   text-decoration: none;
+  font-weight: normal;
+  color: #4a4a4a;
+  display: block;
 }
 
 .control-label + p.text-muted {

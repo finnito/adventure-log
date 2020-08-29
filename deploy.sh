@@ -15,6 +15,6 @@ sudo -u www-data php artisan httpcache:warm
 
 find ./ -type f -exec chmod 644 {} \;
 find ./ -type d -exec chmod 755 {} \;
-chmod -R ./storage 777
-chmod -R ./bootstrap/cache 777
-chmod -R ./public/app 777
+chmod -R 777 ./storage
+chmod -R 777 ./bootstrap/cache
+chmod -R 777 ./public/app

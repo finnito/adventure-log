@@ -12,7 +12,7 @@
 
     <h3 id="make-a-log">
         Make a Log
-        <a href="#make-a-log" class="heading-anchor"><sup>🔗</sup></a>
+        <a href="#make-a-log" class="heading-anchor" title="Permalink to this element"><sup>⚓️</sup></a>
     </h3>
 
     {% set form = form('LogFormBuilder').get() %}
@@ -27,7 +27,7 @@
 
     <h3 id="previous-logs">
         Previous Logs
-        <a href="#previous-logs" class="heading-anchor"><sup>🔗</sup></a>
+        <a href="#previous-logs" class="heading-anchor" title="Permalink to this element"><sup>⚓️</sup></a>
     </h3>
     {% if hut.logs|length == 0 %}
         <p>No logs yet. Be the first?</p>
@@ -36,7 +36,7 @@
         {% for log in hut.logs %}
             <li id="log-{{ log.id }}">
                 <div class="flex">
-                    <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}">🔗</a>{{ log.log_date.format('D d F, Y') }}</span>
+                    <span class="strong"><a class="heading-anchor" href="#log-{{ log.id }}" title="Permalink to this element">⚓️</a>{{ log.log_date.format('D d F, Y') }}</span>
                     <span class="muted">{{ log.name }}</span>
                 </div>
                 <p>

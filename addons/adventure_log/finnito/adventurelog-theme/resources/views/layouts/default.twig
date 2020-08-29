@@ -187,13 +187,13 @@
                                     <div class="icon campsite"><span>🏕</span></div>
                                 {% endif %}
                                 <div class="grow">
-                                    <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
+                                    <a class="flex" href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
                                         <span class="strong">{{ log.related_hut.name }}</span>
                                         <small class="muted"> > {{ log.related_hut.place }}</small>
                                     </a>
-                                    <div class="flex nowrap">
+                                    <div class="flex">
                                         <a href="/places/{{ log.related_hut.place_slug }}/{{ log.related_hut.name_slug }}/">
-                                            <span class="muted">
+                                            <span class="muted strong">
                                                 {{ log.log_date.format('D d F, Y') }}
                                                 {% if not (log.name == "") %} by {{ log.name }}{% endif %}
                                             </span>

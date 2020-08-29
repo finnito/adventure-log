@@ -17,6 +17,22 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.5 (2020/08/29)
+
+ - (Feat): Adds code quality and workflow status badges ([commit](https://github.com/finnito/adventure-log/commit/d097217e063d5270b7833d75ea88d124e0248748))
+ - (Chore): A large number of linting & code quality improvements
+ - (Fix): Improves log styling ([commit](https://github.com/finnito/adventure-log/commit/4a972d21d3af89f4768085917550bf202a9a5dfb))
+ - (Fix): Narrows margin below H4 elements ([commit](https://github.com/finnito/adventure-log/commit/37f566d20093e26297e12461cd7281da7f85f0b8))
+ - (Fix): Adds green bar to top of page ([commit](https://github.com/finnito/adventure-log/commit/1280325ebeaa2e2e7d11ef1601ba8f8e6f0e66d0))
+ - (Fix): Makes the background colour ever so slightly green ([commit](https://github.com/finnito/adventure-log/commit/152bde62d3e07297810d645695e1c05e21f46836))
+ - (Fix): Make blockquotes more consistent ([commit](https://github.com/finnito/adventure-log/commit/c8e61bdc76df488b3ca77c2ca3a7d86c57116dab))
+ - (Fix): Disables log form submit button if invalid ([commit](https://github.com/finnito/adventure-log/commit/9e4e475d74cd0e502ddae11ae4f57703721ba591))
+ - (Fix): Adds transition to a elements ([commit](https://github.com/finnito/adventure-log/commit/10b84b6f20206a5c5f87ca0fcbd18cf3518914e7))
+ - (Chore): Adds deployment badge ([commit](https://github.com/finnito/adventure-log/commit/1b113819e36eecc2d40e17b8c09f463c5799d5de))
+ - (Fix): Makes the recent logs more pretty ([commit](https://github.com/finnito/adventure-log/commit/df5a248ba2ed379ab3152e71dbba9d4a5116fc9e))
+ - (Fix): Introduce transition to all elements ([commit](https://github.com/finnito/adventure-log/commit/56846025a8e2e8a514a55b93e410247dce79e60c))
+ - (Fix): Fix paragraph styling in messages ([commit](https://github.com/finnito/adventure-log/commit/0a540bffe1c67183ee8e522b01757a680a488a96))
+
 ### 2020.4 (2020/08/25)
 
 - Adds some permissions fixing commands ([commit](https://github.com/finnito/adventure-log/commit/1e7ec91ecc89eeb8320c2cdf76967234a2c4e481))

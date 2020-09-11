@@ -98,6 +98,13 @@ ul {
   margin-top: 0;
 }
 
+#map {
+  background-color: #C9E2F1;
+  height: 350px;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+}
+
 blockquote {
   margin: 1rem 0;
   padding: 0.5rem;

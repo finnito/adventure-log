@@ -26,10 +26,49 @@
     {% endfor %}
     </ul>
     {% endif %}
+{% endblock %}
 
-    <script>
-        (function (window, document) {
-        document.querySelector("input[name='q']").value = "{{ query }}";
-    })(window, document);
-    </script>
+{% block footer %}
+<script>
+    (function (window, document) {
+    document.querySelector("input[name='q']").value = "{{ query }}";
+    var res = JSON.parse(`{{ results|raw }}`);
+
+    var huts = L.featureGroup().addTo(HutMap);
+    var campsites = L.featureGroup().addTo(HutMap);
+    L.control.layers({
+        "Huts": huts,
+        "Campsites": campsites
+    }).addTo(HutMap);
+
+    for (const [key, place] of Object.entries(res)) {
+        if (place.place_type == "place") { continue; }
+        let marker = L.circleMarker([place.latitude, place.longitude], {
+            color: '#e74c3c',
+            radius: 5
+        })
+        .bindPopup(
+            "<p><a href='/places/" + place.place_slug + "/" + place.name_slug + "/'>"
+            + place.name + " - " + place.place
+            +"<br>"
+            + place.latitude + ", " + place.longitude
+            +"</a><br>"
+            + "<button onclick='zoomTo(" + place.latitude + ", " + place.longitude + ")'>Zoom To</button>"
+            + "</p>");
+        
+        if (place.place_type == "hut") {
+            marker.addTo(huts);
+            continue;
+        }
+
+        if (place.place_type == "campsite") {
+            marker.addTo(campsites);
+            continue;
+        }
+    }
+    var bounds = huts.getBounds();
+    bounds.extend(campsites.getBounds());
+    HutMap.fitBounds(bounds);
+})(window, document);
+</script>
 {% endblock %}

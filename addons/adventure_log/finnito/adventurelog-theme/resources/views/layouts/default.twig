@@ -160,7 +160,9 @@
                     </div>
                 {% endif %}
             </section>
-
+            {% if (request_path() == "/") or (request_path() starts with "places/") %}
+            <div id="map"></div>
+            {% endif %}
 
             {% block content %}{% endblock %}
 
@@ -251,6 +253,53 @@
               <a title="Email Me" href="mailto:finn@lesueur.nz">Email Me</a>
         </footer>
 
+        {% if (request_path() == "/") or (request_path() starts with "places/") %}
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+       crossorigin=""></script>
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+        <script>
+            var HutMap = L.map('map', {preferCanvas: true, maxZoom: 15, fullscreenControl: true}).setView([-41, 174], 6);
+            L.tileLayer('http://tiles-a.data-cdn.linz.govt.nz/services;key=50b8923a67814d28b7a1067e28f03000/tiles/v4/layer=50767/EPSG:3857/{z}/{x}/{y}.png', {attribution: 'NZ Topo Map images sourced from <a href="https://data.linz.govt.nz/layer/50767-nz-topo50-maps/">LINZ</a> - Crown Copyright Reserved'})
+    .addTo(HutMap);
+        </script>
+        <script>
+            {% if (request_path() == "/") or (request_path() == "places/") %}
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/api/search/?q=", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    for (const [key, place] of Object.entries(response)) {
+                        L.circleMarker([place.latitude, place.longitude], {
+                            color: '#e74c3c',
+                            radius: 5
+                        })
+                        .bindPopup(
+                            "<p><a href='/places/" + place.place_slug + "/" + place.name_slug + "/'>"
+                            + place.name + " - " + place.place
+                            +"<br>"
+                            + place.latitude + ", " + place.longitude
+                            +"</a><br>"
+                            + "<button onclick='zoomTo(" + place.latitude + ", " + place.longitude + ")'>Zoom To</button>"
+                            + "</p>")
+                        .addTo(HutMap);
+                    }
+                }
+            };
+            xhr.send();
+            {% endif %}
+            var zoomTo = function(latitude, longitude) {
+                HutMap.setView([latitude, longitude], 14);
+            }
+        </script>
+        {% endif %}
+        {% block footer %}{% endblock %}
     </body>
 </html>
 {% endhtmlcompress %}

@@ -7,7 +7,7 @@
     <ul>
         <li><a href="{{ hut.static_link }}">View on DOC</a></li>
         <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
-        <li><a href="feed.xml" class="button good">Subscribe to Hut Logs (RSS)</a></li>
+        <li><a href="{{ url_current() }}/ feed.xml" class="button good">Subscribe to Hut Logs (RSS)</a></li>
     </ul>
 
     <h3 id="make-a-log">
@@ -77,7 +77,7 @@
 {% endblock %}
 
 {% block meta %}
-    <link rel="alternate" type="application/rss+xml" title="{{ hut.name }} | AdventureLog NZ" href="feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="{{ hut.name }} | AdventureLog NZ" href="{{ url_current() }}/feed.xml" />
 {% endblock %}
 
 {% block footer %}

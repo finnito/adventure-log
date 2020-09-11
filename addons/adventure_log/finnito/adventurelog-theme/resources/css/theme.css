@@ -60,10 +60,6 @@ h6 {
   font-size: 1em;
 }
 
-/*p {
-  margin-top: 0;
-}*/
-
 li h4 {
   margin-bottom: 0;
 }
@@ -334,7 +330,7 @@ ul.logs li {
 
 ul.logs li:hover,
 ul.logs li:active {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 ul.logs li span.strong {

@@ -36,7 +36,7 @@ h6 {
 }
 
 h1 {
-  font-size: 2.35em;
+  font-size: 1.5em;
 }
 
 h2 {
@@ -543,13 +543,17 @@ footer hr {
   font-style: normal;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 430px) {
   .hamburger p {
     display: block;
   }
+
+  h1 {
+    font-size: 2.35rem;
+  }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 590px) {
   .toggle ~ .nav-wrapper {
     transform: none;
   }

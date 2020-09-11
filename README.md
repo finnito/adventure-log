@@ -17,6 +17,17 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.6 (2020/09/11)
+
+- (Chore): Linting ([commit](https://github.com/finnito/adventure-log/commit/ba60f6d8e131f212513f6c054812a0ed4d949421))
+- (Chore): Linting ([commit](https://github.com/finnito/adventure-log/commit/f895eeb7097cca87d0b600dc5aaf7f1b703ea6f7))
+- (Fix) Lowers the RSS cache to 1hr ([commit](https://github.com/finnito/adventure-log/commit/8d3bb7733c7bf6688990c0d377aef0f0c08a7fe8))
+- (Fix) 404s out if misspelled URL ([commit](https://github.com/finnito/adventure-log/commit/d14180163d9968acf156e1df1c719c24b8c55ea0))
+- (Fix): Adds the honeypot field to the feedback form ([commit](https://github.com/finnito/adventure-log/commit/fd93b1a0e39486bb465b4a9232103178b31a9d7a))
+- (Feat): Adds a map of the huts/campsites ([commit](https://github.com/finnito/adventure-log/commit/8d25e7460150cd43234ed6d62e1c1ec3f9bf632e))
+- [Fix/Feat/Chore]: Fixes the RSS feel links ([commit](https://github.com/finnito/adventure-log/commit/91a2fb4cad35298cfdb380c1588054e6ef91c8a1))
+- (Fix): Rearranges the home page ([commit](https://github.com/finnito/adventure-log/commit/9e5fd4d9f8ace8c3635bfc1075db95871619c710))
+
 ### 2020.5 (2020/08/29)
 
 - (Feat): Adds code quality and workflow status badges ([commit](https://github.com/finnito/adventure-log/commit/d097217e063d5270b7833d75ea88d124e0248748))

@@ -41,6 +41,10 @@ class PlaceController extends PublicController
             ->where("place_slug", "=", $place_slug)
             ->get();
 
+        if ($huts->count() == 0) {
+            abort(404);
+        }
+
         $txt = "There are " . $huts->count() . " huts in " . $huts->first()->getAttribute("place") . ".";
         if ($huts->count() == 1) {
             $txt = "There is " . $huts->count() . " hut in " . $huts->first()->getAttribute("place") . ".";
@@ -76,6 +80,10 @@ class PlaceController extends PublicController
                 ["name_slug", "=", $name_slug]
             ])
             ->first();
+
+        if (is_null($hut)) {
+            abort(404);
+        }
 
         $txt = $hut->getAttribute("name") . " has " . $hut->logs()->count() . " logs.";
         if ($hut->logs()->count() == 1) {

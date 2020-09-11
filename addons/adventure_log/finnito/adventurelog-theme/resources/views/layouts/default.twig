@@ -167,6 +167,31 @@
             {% block content %}{% endblock %}
 
             {% if page.home %}
+
+                {% set regions = entries('places', 'places')
+                    .where("region", "!=", "null")
+                    .groupBy("region")
+                    .orderBy("region")
+                    .get() %}
+
+                <h3 id="places">
+                    Places
+                    <a href="#places" class="heading-anchor" title="Permalink to this element"><sup>⚓️</sup></a>
+                </h3>
+                {% for region in regions %}
+                    <h4>{{ region.region() }}</h4>
+                    {% set places = entries('places', 'places')
+                        .where("region", "=", region.region() )
+                        .groupBy('place_slug')
+                        .orderBy("place")
+                        .get(["place_slug", "place"]) %}             
+                    <ul>
+                    {% for place in places %}
+                        <li><a href="/places/{{ place.place_slug }}">{{ place.place }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% endfor %}
+            
                 {% set logs = entries('places', 'logs')
                     .orderBy("created_at", "DESC")
                     .limit(5)
@@ -209,30 +234,6 @@
                     {% endfor %}
                     </ul>
                 {% endif %}
-
-                {% set regions = entries('places', 'places')
-                    .where("region", "!=", "null")
-                    .groupBy("region")
-                    .orderBy("region")
-                    .get() %}
-
-                <h3 id="places">
-                    Places
-                    <a href="#places" class="heading-anchor" title="Permalink to this element"><sup>⚓️</sup></a>
-                </h3>
-                {% for region in regions %}
-                    <h4>{{ region.region() }}</h4>
-                    {% set places = entries('places', 'places')
-                        .where("region", "=", region.region() )
-                        .groupBy('place_slug')
-                        .orderBy("place")
-                        .get(["place_slug", "place"]) %}             
-                    <ul>
-                    {% for place in places %}
-                        <li><a href="/places/{{ place.place_slug }}">{{ place.place }}</a></li>
-                    {% endfor %}
-                    </ul>
-                {% endfor %}
             {% endif %}
 
         </main>

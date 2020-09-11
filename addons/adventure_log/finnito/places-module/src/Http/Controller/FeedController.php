@@ -30,7 +30,8 @@ class FeedController extends PublicController
         return response($content)
             ->withHeaders([
                 'Content-Type' => "application/xml",
-            ]);
+            ])
+            ->setTtl(3600);
     }
 
     public function place(
@@ -60,7 +61,8 @@ class FeedController extends PublicController
         return response($content)
             ->withHeaders([
                 'Content-Type' => "application/xml",
-            ]);
+            ])
+            ->setTtl(3600);
     }
 
     public function hut(
@@ -96,6 +98,7 @@ class FeedController extends PublicController
         return response($content)
             ->withHeaders([
                 'Content-Type' => "application/xml",
-            ]);
+            ])
+            ->setTtl(3600);
     }
 }

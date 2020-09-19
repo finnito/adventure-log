@@ -264,11 +264,37 @@
         <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
         <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
         <script>
-            var HutMap = L.map('map', {preferCanvas: true, maxZoom: 15, fullscreenControl: true}).setView([-41, 174], 6);
-            L.tileLayer('http://tiles-a.data-cdn.linz.govt.nz/services;key=50b8923a67814d28b7a1067e28f03000/tiles/v4/layer=50767/EPSG:3857/{z}/{x}/{y}.png', {attribution: 'NZ Topo Map images sourced from <a href="https://data.linz.govt.nz/layer/50767-nz-topo50-maps/">LINZ</a> - Crown Copyright Reserved'})
-    .addTo(HutMap);
+            var HutMap = L.map(
+                'map',
+                {
+                    preferCanvas: true,
+                    maxZoom: 15,
+                    fullscreenControl: true
+                }
+            ).setView([-41, 174], 6);
+            
+            var layer50 = L.tileLayer('http://tiles-a.data-cdn.linz.govt.nz/services;key=50b8923a67814d28b7a1067e28f03000/tiles/v4/layer=50767/EPSG:3857/{z}/{x}/{y}.png', {
+                attribution: 'NZ Topo Map images sourced from <a href="https://data.linz.govt.nz/layer/50767-nz-topo50-maps/">LINZ</a> - Crown Copyright Reserved'
+            }).addTo(HutMap);
+
+            var layer250 = L.tileLayer('http://tiles-a.data-cdn.linz.govt.nz/services;key=50b8923a67814d28b7a1067e28f03000/tiles/v4/layer=50798/EPSG:3857/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+            }).addTo(HutMap);
+
             HutMap.on('fullscreenchange', function () {
                 HutMap.invalidateSize();
+            });
+
+            HutMap.on("zoomend", function(e){
+                if (HutMap.getZoom() > 12) {
+                    HutMap.removeLayer(layer250);
+                    layer50.addTo(HutMap);
+                    return;
+                }
+
+                HutMap.removeLayer(layer50);
+                layer250.addTo(HutMap);
+                
             });
         </script>
         <script>

@@ -409,7 +409,7 @@ input[type=checkbox].toggle {
 input[type=checkbox].toggle,
 .hamburger {
   position: absolute;
-  right: 0.5rem;
+  right: 0rem;
   top: 0.5rem;
   margin: 0;
   display: inline;
@@ -428,7 +428,7 @@ input[type=checkbox].toggle,
   margin: 0 0 0 0.25rem;
   line-height: 1;
   font-weight: 500;
-  display: none;
+  display: inline;
 }
 
 .hamburger span {

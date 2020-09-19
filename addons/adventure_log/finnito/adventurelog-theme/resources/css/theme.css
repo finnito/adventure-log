@@ -101,6 +101,7 @@ ul {
 #map {
   background-color: #C9E2F1;
   height: 350px;
+  max-height: 50vh;
   margin-top: 0.25rem;
   border-radius: 0.25rem;
 }

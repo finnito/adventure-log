@@ -17,15 +17,10 @@
 <script>
     (function (window, document) {
     document.querySelector("input[name='q']").value = "{{ query }}";
-    var huts = JSON.parse(`{{ huts|raw }}`);
-    let results = L.featureGroup();
-    results.addTo(HutMap);
+    var huts = JSON.parse(`{{ huts|raw }}`);;
     for (const [key, place] of Object.entries(huts)) {
         if (place.place_type !== "place") {
-            L.circleMarker([place.latitude, place.longitude], {
-            color: '#e74c3c',
-            radius: 5
-            })
+            L.circleMarker([place.latitude, place.longitude], markerOptions)
             .bindPopup(
                 "<p><a href='/places/" + place.place_slug + "/" + place.name_slug + "/'>"
                 + place.name
@@ -34,11 +29,10 @@
                 +"</a><br>"
                 + "<button onclick='zoomTo(" + place.latitude + ", " + place.longitude + ")'>Zoom To</button>"
                 + "</p>")
-            .addTo(results);
+            .addTo(places);
         }
     }
-    console.log(results.getBounds());
-    HutMap.fitBounds(results.getBounds());
+    HutMap.fitBounds(places.getBounds());
 })(window, document);
 </script>
 {% endblock %}

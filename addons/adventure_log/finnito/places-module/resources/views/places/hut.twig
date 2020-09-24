@@ -85,14 +85,9 @@
     (function (window, document) {
     document.querySelector("input[name='q']").value = "{{ query }}";
     var hut = JSON.parse(`{{ hut|raw }}`);
-    let results = L.featureGroup();
-    results.addTo(HutMap);
-    L.circleMarker([hut.latitude, hut.longitude], {
-        color: '#e74c3c',
-        radius: 5
-    })
-    .addTo(results);
-    HutMap.fitBounds(results.getBounds());
+    L.circleMarker([hut.latitude, hut.longitude], markerOptions)
+        .addTo(places);
+    HutMap.fitBounds(places.getBounds());
 })(window, document);
 </script>
 {% endblock %}

@@ -296,6 +296,15 @@
                 layer250.addTo(HutMap);
                 
             });
+
+            var markerOptions = {
+                color: '#e74c3c',
+                radius: 7,
+                fillOpacity: 0
+            };
+
+            let places = L.featureGroup();
+            places.addTo(HutMap);
         </script>
         <script>
             {% if (request_path() == "/") or (request_path() == "places/") %}
@@ -305,11 +314,9 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
+                    
                     for (const [key, place] of Object.entries(response)) {
-                        L.circleMarker([place.latitude, place.longitude], {
-                            color: '#e74c3c',
-                            radius: 5
-                        })
+                        L.circleMarker([place.latitude, place.longitude], markerOptions)
                         .bindPopup(
                             "<p><a href='/places/" + place.place_slug + "/" + place.name_slug + "/'>"
                             + place.name + " - " + place.place
@@ -318,7 +325,7 @@
                             +"</a><br>"
                             + "<button onclick='zoomTo(" + place.latitude + ", " + place.longitude + ")'>Zoom To</button>"
                             + "</p>")
-                        .addTo(HutMap);
+                        .addTo(places);
                     }
                 }
             };

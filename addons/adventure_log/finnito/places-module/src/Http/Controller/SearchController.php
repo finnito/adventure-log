@@ -21,11 +21,19 @@ class SearchController extends PublicController
             ->where("name", "LIKE", "%".$request->q."%")
             ->get();
 
+        $hutResults2 = $model
+            ->newQuery()
+            ->where("place", "LIKE", "%".$request->q."%")
+            ->get();
+
+        $hutResults = $hutResults->merge($hutResults2);
+
         $placeResults = $model
             ->newQuery()
             ->where("place", "like", "%".$request->q."%")
             ->groupBy("place")
             ->get();
+
         foreach ($placeResults as $entry) {
             $entry["place_type"] = "place";
         }

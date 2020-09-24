@@ -17,6 +17,21 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.7 (2020/09/25)
+
+- (Feat): Adds a script to generate the changelog ([commit](https://github.com/finnito/adventure-log/commit/0ceaf04382d55b4f5f242715599b167c04265185))
+- (Fix): Allows the map to be 100%vh on fullscreen ([commit](https://github.com/finnito/adventure-log/commit/624871ea84108de6996359d7042c9745936616aa))
+- (Feat): Allows searching by "place" attribute ([commit](https://github.com/finnito/adventure-log/commit/6ae1d128b1cf11bc9af71c838697109b05ddd064))
+- (Fix): Standardise the search appearance ([commit](https://github.com/finnito/adventure-log/commit/6d054cb4ce5d4d2f7a5b648055a9ca0281f93271))
+- (Fix): Display "menu" button on mobile ([commit](https://github.com/finnito/adventure-log/commit/6f13a6f88c05e80bd1644f55376817e849c37a0c))
+- (Fix): Stops the map for being too tall ([commit](https://github.com/finnito/adventure-log/commit/c41e71fb5ded3d721cce6985292682bc19d587b2))
+- (Feat): Adds ability to display NZTopo250 map tiles ([commit](https://github.com/finnito/adventure-log/commit/e85ee3f03ffbe016705a872b0634c401198476b5))
+- (Fix): Fixes the map not properly rendering on fullscreen ([commit](https://github.com/finnito/adventure-log/commit/c50108aec49ff674a23ee3e2eded53c3ad30e1da))
+- (Fix): Fixes mobile breakpoint and header sizing ([commit](https://github.com/finnito/adventure-log/commit/6516f2638dae9f5d71126fbdec619f925f78bbdf))
+- (Feat): Adds an emoji logo ([commit](https://github.com/finnito/adventure-log/commit/0943a59c4c4064be005e6639ccbf95c75dd1da19))
+- (Fix): Removes whitespace from RSS URL ([commit](https://github.com/finnito/adventure-log/commit/8aa9c8334ee7b825b994fd8db8a69c904cc20212))
+- Adds the 2020.6 release notes ([commit](https://github.com/finnito/adventure-log/commit/3b232a180d021a3bdbb3d71f17fc3edc831a56a8))
+
 ### 2020.6 (2020/09/11)
 
 - (Chore): Linting ([commit](https://github.com/finnito/adventure-log/commit/ba60f6d8e131f212513f6c054812a0ed4d949421))

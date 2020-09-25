@@ -40,7 +40,7 @@ I'd love to hear from you, honestly!
 - (Fix) 404s out if misspelled URL ([commit](https://github.com/finnito/adventure-log/commit/d14180163d9968acf156e1df1c719c24b8c55ea0))
 - (Fix): Adds the honeypot field to the feedback form ([commit](https://github.com/finnito/adventure-log/commit/fd93b1a0e39486bb465b4a9232103178b31a9d7a))
 - (Feat): Adds a map of the huts/campsites ([commit](https://github.com/finnito/adventure-log/commit/8d25e7460150cd43234ed6d62e1c1ec3f9bf632e))
-- [Fix/Feat/Chore]: Fixes the RSS feel links ([commit](https://github.com/finnito/adventure-log/commit/91a2fb4cad35298cfdb380c1588054e6ef91c8a1))
+- (Fix): Fixes the RSS feel links ([commit](https://github.com/finnito/adventure-log/commit/91a2fb4cad35298cfdb380c1588054e6ef91c8a1))
 - (Fix): Rearranges the home page ([commit](https://github.com/finnito/adventure-log/commit/9e5fd4d9f8ace8c3635bfc1075db95871619c710))
 
 ### 2020.5 (2020/08/29)

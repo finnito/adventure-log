@@ -99,7 +99,7 @@ ul {
 }
 
 #map {
-  background-color: #C9E2F1;
+  background-color: #c9e2f1;
   margin-top: 0.25rem;
   border-radius: 0.25rem;
 }
@@ -412,7 +412,7 @@ input[type=checkbox].toggle {
 input[type=checkbox].toggle,
 .hamburger {
   position: absolute;
-  right: 0rem;
+  right: 0;
   top: 0.5rem;
   margin: 0;
   display: inline;

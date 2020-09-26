@@ -17,6 +17,14 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.8 (2020/09/27)
+
+- (Fix): Use more neutral language in the heading ([commit](https://github.com/finnito/adventure-log/commit/b2ac1c2aaa54807ca007de4e8949e660762af527))
+- (Fix): Increases the maps z-index on fullscreen ([commit](https://github.com/finnito/adventure-log/commit/0284dcc87ec0232e4cfd65b87b9372fd7e277005))
+- (Fix): Aligns the mobile nav menu properly to the top. ([commit](https://github.com/finnito/adventure-log/commit/c46e49ad13571af71b75a3eda10f5ffb0ce00a65))
+- (Chore): Code quality fixes ([commit](https://github.com/finnito/adventure-log/commit/49239004030e002618471afa08ed1dea2804ff9c))
+- (Fix): Get symfony/http-kernel security patch ([commit](https://github.com/finnito/adventure-log/commit/4e9c2193d52ec19a6e87897e150428459f906bb6))
+
 ### 2020.7 (2020/09/25)
 
 - (Feat): Adds a script to generate the changelog ([commit](https://github.com/finnito/adventure-log/commit/0ceaf04382d55b4f5f242715599b167c04265185))

@@ -494,7 +494,7 @@ nav {
   position: absolute;
   left: -1.5rem;
   height: calc(100vh - 5rem);
-  top: 5rem;
+  top: 4rem;
   transition: all 300ms;
   padding: 0.5rem;
   box-sizing: border-box;

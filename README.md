@@ -17,6 +17,11 @@ I'd love to hear from you, honestly!
 
 ## Releases
 
+### 2020.9 (2020/10/04)
+
+- (Feat): Increases the information density on hut pages ([commit](https://github.com/finnito/adventure-log/commit/1940c90ad459d6e5f5b905daa467e3aec8f1b96c))
+- (Feat): Adds simple script to start a dev server ([commit](https://github.com/finnito/adventure-log/commit/e8a41b647277e1b4ea0d0bb860147a9513603cca))
+
 ### 2020.8 (2020/09/27)
 
 - (Fix): Use more neutral language in the heading ([commit](https://github.com/finnito/adventure-log/commit/b2ac1c2aaa54807ca007de4e8949e660762af527))

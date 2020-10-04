@@ -15,6 +15,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" as="script">
+        <link rel="preload" href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js" as="script">
+        <link rel="preload" href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css" as="style">
+        <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" as="style">
+        <link rel="dns-prefetch" href="//unpkg.com">
+        <link rel="dns-prefetch" href="//api.mapbox.com">
+        <link rel="dns-prefetch" href="//tiles-a.data-cdn.linz.govt.nz">
+        <link rel="dns-prefetch" href="//github.com">
+        <link rel="dns-prefetch" href="//github.githubassets.com">
+
         <!-- Locale -->
         <meta http-equiv="Content-Language" content="{{ config('app.locale') }}">
         <meta property="og:locale" content="{{ config('app.locale') }}" />
@@ -62,7 +72,7 @@
         {{ template.includes.render('head')|raw }}
     </head>
 
-    <body>
+    <body {% if page.home %}class="home"{% endif %}>
         <header id="header">
             <nav>
               <div>

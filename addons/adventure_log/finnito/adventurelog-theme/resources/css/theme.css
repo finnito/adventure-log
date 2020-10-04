@@ -45,6 +45,7 @@ h2 {
 
 h3 {
   font-size: 1.75em;
+  margin-bottom: 0.25rem;
 }
 
 h4 {
@@ -109,8 +110,28 @@ ul {
   max-height: 50vh;
 }
 
+body:not(.home) #map:not(.leaflet-fullscreen-on) {
+  height: 150px;
+  max-height: 25vh;
+}
+
 #map.leaflet-fullscreen-on {
   z-index: 999999999;
+}
+
+#map.leaflet-container .leaflet-control-attribution,
+#map.leaflet-container .leaflet-control-scale {
+  font-size: 7px;
+}
+
+.buttons {
+  padding: 0;
+  list-style: none;
+}
+
+.buttons li {
+  display: inline-block;
+  padding: 0.2rem 0;
 }
 
 blockquote {
@@ -395,12 +416,18 @@ ul.logs li a {
   font-style: italic;
 }
 
+.flex h2 + span {
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
 .flex h2 {
   margin-bottom: 0.5rem;
 }
 
 main h2 {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 nav h1 {

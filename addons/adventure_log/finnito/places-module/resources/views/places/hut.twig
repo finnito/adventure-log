@@ -4,10 +4,10 @@
         <h2>{{ hut.name }}</h2>
         <span><small><a class="flag" href="/places/{{ hut.place_slug }}/">{{ hut.place }}</a></small></span>
     </div>
-    <ul>
-        <li><a href="{{ hut.static_link }}">View on DOC</a></li>
-        <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14">View on TopoMap: {{ hut.latitude }}, {{ hut.longitude }}</a></li>
-        <li><a href="{{ url_current() }}/feed.xml" class="button good">Subscribe to Hut Logs (RSS)</a></li>
+    <ul class="buttons">
+        <li><a href="{{ hut.static_link }}" class="button alert">View on DOC</a></li>
+        <li><a href="http://www.topomap.co.nz/NZTopoMap?v=2&ll={{hut.latitude}},{{hut.longitude}}&z=14" class="button alert success">View on TopoMap</a></li>
+        <li><a href="{{ url_current() }}/feed.xml" class="button alert warning">RSS Feed</a></li>
     </ul>
 
     <h3 id="make-a-log">
